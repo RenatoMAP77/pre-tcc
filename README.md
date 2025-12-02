@@ -187,3 +187,84 @@ Como há apenas um fator, existem **4 combinações possíveis**.
    - Se p < 0.05 → rejeita H0, modelos são significativamente diferentes.
 
 ---
+
+# População, Sujeitos e Amostragem
+
+A população do estudo corresponde a workloads típicos de ambientes em nuvem — serviços que utilizam CPU, memória, storage e rede.
+Os sujeitos analisados são séries temporais representando comportamento realístico de aplicações, geradas via **dados sintéticos simulados em Python**, replicando padrões comuns de uso.
+
+### Estratégia de Amostragem
+
+* **Tipo:** séries temporais.
+* **Granularidade:** **horária** (equilíbrio entre detalhamento e viabilidade).
+* **Período de simulação:** **30 dias** (~720 registros por métrica).
+* **Métricas:** CPU, memória, armazenamento, tráfego de rede.
+
+Essa escolha reduz dependências externas e torna o experimento viável dentro do prazo de execução de até 5 meses.
+
+# Instrumentação e Protocolo Operacional
+
+### Ferramentas Utilizadas
+
+* Python 3.10+
+* Pandas, NumPy
+* Scikit-learn
+* Statsmodels (ARIMA)
+* Prophet
+* Matplotlib / Seaborn
+
+### Protocolos do experimento
+
+1. **Definição das métricas de interesse.**
+2. **Geração dos dados sintéticos** com padrões realísticos.
+3. **Pré-processamento**, incluindo normalização, limpeza e agregação.
+4. **Construção do dataset final.**
+5. **Treinamento dos modelos** (Regressão Linear, Média Móvel, ARIMA, Exponential Smoothing).
+6. **Avaliação dos modelos** utilizando MAE, RMSE e MAPE.
+7. **Aplicação de testes estatísticos** com α = 0.05.
+8. **Seleção do modelo mais preciso.**
+9. **Análise e documentação dos resultados.**
+
+
+
+# Fluxograma Operacional
+
+```mermaid
+flowchart TD
+    A[Definir escopo das metricas] --> B["Gerar dados sinteticos via Python"]
+    B --> C["Pre-processamento das metricas"]
+    C --> D["Construcao do dataset final"]
+    D --> E["Aplicacao dos modelos de previsao"]
+    E --> F["Coleta das metricas de performance dos modelos (MAE, RMSE, MAPE)"]
+    F --> G["Aplicacao de testes de hipotese com alpha = 0.05"]
+    G --> H["Comparacao e selecao dos melhores modelos"]
+    H --> I["Registro e interpretacao dos resultados"]
+
+```
+
+
+
+# Plano de Análise de Dados (Pré-Execução)
+
+### Procedimentos Estatísticos
+
+* Estatística descritiva (média, mediana, desvio padrão).
+* Análise gráfica da série temporal.
+* Shapiro-Wilk para testar normalidade.
+* ANOVA ou Kruskal-Wallis para comparação entre modelos.
+* Teste t caso haja pares comparáveis.
+
+### Métricas de Avaliação
+
+* MAE
+* RMSE
+* MAPE
+* Erro de validação cruzada
+
+### Critérios de Seleção
+
+* Menor erro médio.
+* Estabilidade preditiva.
+* Robustez diante de diferentes padrões.
+* Capacidade de captar sazonalidade e tendência.
+
