@@ -230,15 +230,33 @@ Essa escolha reduz dependências externas e torna o experimento viável dentro d
 # Fluxograma Operacional
 
 ```mermaid
-flowchart TD
-    A[Definir escopo das metricas] --> B["Gerar dados sinteticos via Python"]
-    B --> C["Pre-processamento das metricas"]
-    C --> D["Construcao do dataset final"]
-    D --> E["Aplicacao dos modelos de previsao"]
-    E --> F["Coleta das metricas de performance dos modelos (MAE, RMSE, MAPE)"]
-    F --> G["Aplicacao de testes de hipotese com alpha = 0.05"]
-    G --> H["Comparacao e selecao dos melhores modelos"]
-    H --> I["Registro e interpretacao dos resultados"]
+   flowchart TD
+    A[Definir escopo das métricas] --> B[Gerar dados sintéticos via Python]
+    B --> C[Pré-processamento das métricas]
+    C --> D{Dados contêm valores ausentes ou outliers?}
+    D -->|Sim| E[Tratamento de dados: imputação ou remoção]
+    D -->|Não| F[Normalização dos dados]
+    E --> F
+    F --> G[Construção do dataset final]
+    G --> H[Divisão treino/validação - 70%/30%]
+    H --> I[Aplicação dos modelos de previsão]
+    I --> J[Coleta das métricas MAE, RMSE, MAPE]
+    J --> K{Resíduos passaram no teste de normalidade?}
+    K -->|Sim| L[Aplicação de ANOVA]
+    K -->|Não| M[Aplicação de Kruskal-Wallis]
+    L --> N{p-valor < 0.05?}
+    M --> N
+    N -->|Sim| O[Modelos apresentam diferença significativa]
+    N -->|Não| P[Modelos não diferem significativamente]
+    O --> Q[Comparação e seleção do melhor modelo]
+    P --> Q
+    Q --> R{Erro < 20% em pelo menos um modelo?}
+    R -->|Sim| S[Critério de sucesso atendido]
+    R -->|Não| T[Revisar hiperparâmetros ou adicionar features]
+    T --> I
+    S --> U[Registro e interpretação dos resultados]
+    U --> V[Análise de correlação entre métricas e custos]
+    V --> W[Documentação final e conclusões]
 
 ```
 
