@@ -52,7 +52,7 @@ Organizações frequentemente enfrentam:
 - **Ausência de modelos preditivos** que auxiliem no planejamento financeiro
 
 #### Oportunidade:
-Criar modelos de previsão de custos baseados em métricas reais de uso (CPU, memória, armazenamento, requisições) pode:
+Criar modelos de previsão de custos baseados em métricas reais de uso (CPU, memória) pode:
 - Permitir **planejamento financeiro mais preciso**
 - Identificar **padrões de consumo** e oportunidades de otimização
 - Auxiliar **decisões técnicas** com impacto financeiro quantificável
@@ -68,10 +68,10 @@ Este é um **experimento acadêmico** desenvolvido como Trabalho de Conclusão d
 - Departamentos financeiros que necessitam de previsões orçamentárias confiáveis
 
 #### Contexto Técnico:
-- **Ambiente:** Simulação baseada em padrões realísticos de workloads cloud
-- **Tecnologias:** Python 3.10+, bibliotecas de análise de dados (Pandas, NumPy), machine learning (Scikit-learn, Statsmodels, Prophet)
-- **Métricas analisadas:** CPU, memória RAM, armazenamento, volume de requisições/tráfego de rede
-- **Modelos cloud:** Precificação baseada em provedores reais (AWS, Azure, GCP)
+- **Ambiente:** Análise baseada em dados reais do Google Cluster Data 2019
+- **Tecnologias:** Python 3.10+, bibliotecas de análise de dados (Pandas, NumPy), machine learning (Scikit-learn, Statsmodels)
+- **Métricas analisadas:** CPU e memória RAM (dados reais); custos (estimados)
+- **Modelos cloud:** Precificação estimada baseada em tabelas públicas de provedores (AWS, Azure, GCP)
 - **Processo:** Metodologia experimental controlada com análise estatística rigorosa
 
 ### 2.3 Trabalhos e Evidências Prévias (Internos e Externos)
@@ -135,9 +135,9 @@ A literatura em FinOps e cloud cost management demonstra que:
 
 1. **O1 - Desenvolver modelos de previsão:** Construir e implementar pelo menos quatro modelos distintos de previsão de custos (regressão linear, média móvel, ARIMA, exponential smoothing) utilizando métricas reais de uso de infraestrutura.
 
-2. **O2 - Avaliar acurácia dos modelos:** Medir e comparar a precisão de cada modelo utilizando métricas padronizadas de erro (MAE, RMSE, MAPE) em diferentes janelas temporais.
+2. **O2 - Avaliar acurácia dos modelos:** Medir e comparar a precisão de cada modelo utilizando métricas padronizadas de erro (MAE, RMSE, MAPE) em janela temporal de 30 dias.
 
-3. **O3 - Identificar variáveis preditoras:** Analisar quais métricas de infraestrutura (CPU, memória, requisições, armazenamento) apresentam maior correlação com os custos finais e maior poder preditivo.
+3. **O3 - Identificar variáveis preditoras:** Analisar quais métricas de infraestrutura (CPU, memória) apresentam maior correlação com os custos estimados e maior poder preditivo.
 
 4. **O4 - Validar generalização:** Verificar se os modelos mantêm precisão adequada em dados não utilizados no treinamento (validação cruzada), garantindo capacidade de generalização para períodos futuros.
 
@@ -145,20 +145,23 @@ A literatura em FinOps e cloud cost management demonstra que:
 
 ### 3.3 Questões de Pesquisa / de Negócio
 
+**Métrica Primária:** MAE (Mean Absolute Error) - Principal critério de comparação
+**Métricas Secundárias:** RMSE e MAPE - Análises complementares
+
 #### Relacionadas ao Objetivo O1 (Desenvolver modelos):
-- **Q1.1:** Qual modelo de previsão apresenta o menor erro médio absoluto (MAE)?
-- **Q1.2:** Como os modelos se comportam em diferentes janelas de previsão (7, 14 e 30 dias)?
+- **Q1.1 (PRIMÁRIA):** Qual modelo de previsão apresenta o menor erro médio absoluto (MAE)?
+- **Q1.2:** Como os modelos se comportam com janela temporal de 30 dias?
 - **Q1.3:** Existe diferença estatisticamente significativa entre o desempenho dos modelos?
 
 #### Relacionadas ao Objetivo O2 (Avaliar acurácia):
-- **Q2.1:** Qual modelo apresenta menor erro quadrático médio (RMSE)?
-- **Q2.2:** Qual modelo oferece o menor erro percentual (MAPE)?
-- **Q2.3:** Os erros de previsão diminuem com janelas temporais maiores?
+- **Q2.1 (SECUNDÁRIA):** Qual modelo apresenta menor erro quadrático médio (RMSE)?
+- **Q2.2 (SECUNDÁRIA):** Qual modelo oferece o menor erro percentual (MAPE)?
+- **Q2.3:** Os modelos mantêm acurácia consistente ao longo das 30 repetições?
 
 #### Relacionadas ao Objetivo O3 (Identificar variáveis):
-- **Q3.1:** Quais métricas de infraestrutura apresentam maior correlação com os custos totais?
-- **Q3.2:** Como variações no volume de requisições afetam o custo previsto?
-- **Q3.3:** O consumo de CPU é um preditor melhor que o uso de memória para custos?
+- **Q3.1:** Quais métricas de infraestrutura (CPU, memória) apresentam maior correlação com os custos totais?
+- **Q3.2:** Como variações no consumo de memória afetam o custo previsto?
+- **Q3.3:** O consumo de CPU é um preditor melhor que o uso de memória para custos estimados?
 
 #### Relacionadas ao Objetivo O4 (Validar generalização):
 - **Q4.1:** Os modelos generalizam bem para períodos não vistos durante o treinamento?
@@ -216,13 +219,36 @@ A literatura em FinOps e cloud cost management demonstra que:
 
 ### 4.1 Escopo Funcional / de Processo (Incluído e Excluído)
 
+#### 📊 Clarificação: Origem e Natureza dos Dados
+
+**IMPORTANTE:** Este experimento utiliza uma **combinação de dados reais e estimados**:
+
+1. **Dados REAIS (do Google Cluster Data 2019):**
+   - **Consumo de CPU:** Métricas reais de utilização de CPU de workloads de produção
+   - **Consumo de memória RAM:** Métricas reais de uso de memória
+   - **Timestamps:** Eventos temporais reais (granularidade original de 5 minutos)
+   - **Job/Task events:** Informações reais de jobs executados
+
+2. **Dados ESTIMADOS/CALCULADOS:**
+   - **Custos monetários:** Calculados aplicando tabelas públicas de precificação (AWS, Azure, GCP) às métricas reais de uso
+   - **Volume de armazenamento:** Não disponível diretamente no Google Cluster Data; será estimado baseado em CPU/memória ou excluído do escopo
+   - **Requisições/tráfego de rede:** Não disponível diretamente no Google Cluster Data; será estimado ou excluído do escopo
+
+3. **Processamento dos Dados:**
+   - **Agregação temporal:** Dados originais (5 minutos) são agregados para granularidade horária (1 hora)
+   - **Período de análise:** 30 dias contínuos extraídos do dataset de maio de 2019
+   - **Resultado final:** 720 observações (30 dias × 24 horas) por métrica
+
+**Conclusão:** As métricas de uso (CPU e memória) são **reais**; os custos são **estimados** com base nessas métricas reais. Storage e requisições podem ser **excluídos** ou **estimados** dependendo da disponibilidade.
+
+---
+
 #### ✅ Incluído no Escopo:
 
 **Métricas de Infraestrutura:**
-- Consumo de CPU (percentual de utilização)
-- Consumo de memória RAM (em MB)
-- Volume de armazenamento (em GB)
-- Quantidade de requisições/tráfego de rede (req/s)
+- Consumo de CPU (percentual de utilização) - **REAL**
+- Consumo de memória RAM (em MB) - **REAL**
+- Custos monetários (em R$) - **ESTIMADOS com base em CPU e memória reais**
 
 **Modelos de Previsão:**
 - Regressão Linear
@@ -231,9 +257,8 @@ A literatura em FinOps e cloud cost management demonstra que:
 - Exponential Smoothing (Suavização Exponencial)
 
 **Janelas Temporais de Análise:**
-- Previsões baseadas em 7 dias
-- Previsões baseadas em 14 dias
-- Previsões baseadas em 30 dias
+- **Janela principal:** Previsões baseadas em 30 dias (análise principal)
+- **Janelas exploratórias (opcionais):** 7 e 14 dias (apenas se tempo permitir)
 
 **Métricas de Avaliação:**
 - MAE, RMSE, MAPE
@@ -257,6 +282,8 @@ A literatura em FinOps e cloud cost management demonstra que:
 - Deploy de modelos em produção
 
 **Métricas Adicionais:**
+- **Volume de armazenamento (storage)** - Não disponível no Google Cluster Data 2019
+- **Quantidade de requisições/tráfego de rede** - Não disponível no Google Cluster Data 2019
 - Custos de transferência de dados entre regiões
 - Custos de serviços gerenciados (bancos de dados, cache)
 - Custos de suporte técnico ou SLAs
@@ -914,20 +941,22 @@ Os **objetos de estudo** são as séries temporais de métricas de uso de infrae
 - **Níveis:** 4
 - **Manipulação:** Controlada experimentalmente (escolha do pesquisador)
 
-#### Fator Secundário (Exploratório):
+#### Fator Secundário (Exploratório - NÃO incluído na análise principal):
 
 **F2: JANELA TEMPORAL**
 
 | Nível | Descrição | Uso |
 |-------|-----------|-----|
-| **Nível 1** | 7 dias | Janela curta, previsões de curto prazo |
-| **Nível 2** | 14 dias | Janela média |
-| **Nível 3** | 30 dias | Janela longa, captura padrões de longo prazo |
+| **Nível 1** | 30 dias | **JANELA PRINCIPAL** - Única janela analisada no experimento principal |
+| **Nível 2** | 7 dias | Exploratório (apenas se tempo permitir) |
+| **Nível 3** | 14 dias | Exploratório (apenas se tempo permitir) |
 
 **Natureza do Fator:**
 - **Tipo:** Categórico ordinal
-- **Níveis:** 3
-- **Manipulação:** Análise secundária (não é foco principal, mas será explorado)
+- **Níveis:** 1 na análise principal (30 dias); 3 se análise exploratória for realizada
+- **Manipulação:** **NÃO SERÁ ANALISADO** como fator experimental
+- **Justificativa:** Incluir 3 janelas temporais triplicaria o tempo de execução (de ~15h para ~45h), inviável para o cronograma do TCC
+- **Decisão:** Fixar janela em 30 dias (análise principal); análise exploratória com 7 e 14 dias fica como trabalho futuro
 
 ### 8.4 Tratamentos (Condições Experimentais)
 
@@ -976,8 +1005,13 @@ ARIMA(p, d, q):
 - **Vantagens:** Captura dependência temporal, tendências, sazonalidade
 - **Desvantagens:** Requer estacionariedade, pode ser lento, difícil de interpretar
 - **Implementação:** `statsmodels.tsa.arima.model.ARIMA`
-- **Hiperparâmetros:** Auto-determinados via grid search ou AIC/BIC
-  - Candidatos: ARIMA(1,1,1), ARIMA(2,1,2), ARIMA(1,1,0)
+- **Hiperparâmetros - Grid Search:**
+  - **p (ordem AR):** {0, 1, 2}
+  - **d (diferenciação):** {0, 1}
+  - **q (ordem MA):** {0, 1, 2}
+  - **Método de seleção:** AIC (Akaike Information Criterion)
+  - **Total de combinações:** 3 × 2 × 3 = 18 configurações
+  - **Critério de escolha:** Menor AIC entre as 18 configurações
 
 #### Tratamento T4: Exponential Smoothing (ES)
 
@@ -993,8 +1027,13 @@ Onde α é o parâmetro de suavização (0 < α < 1)
 - **Vantagens:** Reage rapidamente a mudanças, suaviza ruído, simples de entender
 - **Desvantagens:** Não captura sazonalidade complexa (versão simples)
 - **Implementação:** `statsmodels.tsa.holtwinters.ExponentialSmoothing`
-- **Hiperparâmetros:** α (suavização), tendência (add/mul), sazonalidade (none/add/mul)
-  - Usar Holt-Winters se necessário capturar tendência + sazonalidade
+- **Hiperparâmetros - Configuração Específica:**
+  - **Modelo:** Holt-Winters (Triple Exponential Smoothing)
+  - **Tendência (trend):** {'add', 'mul', None}
+  - **Sazonalidade (seasonal):** {'add', None}
+  - **Período sazonal (seasonal_periods):** 24 (ciclo diário de 24 horas)
+  - **Método de otimização:** Least squares (padrão statsmodels)
+  - **Suavização (smoothing_level, smoothing_trend, smoothing_seasonal):** Otimizados automaticamente
 
 ### 8.5 Variáveis Dependentes (Respostas)
 
@@ -1165,8 +1204,9 @@ Variáveis que **podem distorcer os resultados** se não forem adequadamente tra
 #### Justificativa:
 
 1. **Adequação ao Problema:**
-   - Há apenas um fator principal (tipo de modelo de previsão)
-   - Não há necessidade de blocos (ambiente homogêneo, dados sintéticos)
+   - Há **apenas um fator experimental** (tipo de modelo de previsão)
+   - **Janela temporal é FIXA em 30 dias** (não é fator experimental)
+   - Não há necessidade de blocos (ambiente homogêneo, dados reais do Google Cluster)
    - Todos os modelos são aplicados aos mesmos dados, garantindo equidade
 
 2. **Vantagens para Este Contexto:**
@@ -1200,9 +1240,12 @@ Análise:    ←─────── ANOVA ou Kruskal-Wallis ──────
 
 **Desenho Fatorial (2 fatores):**
 - Poderia incluir "Janela Temporal" (7, 14, 30 dias) como segundo fator
-- Resultaria em 4 × 3 = 12 combinações de tratamentos
-- **Não selecionado porque:** Aumentaria complexidade sem adicionar valor proporcional ao objetivo principal
-- **Tratamento:** Janela temporal será analisada de forma exploratória, não inferencial
+- Resultaria em 4 × 3 = 12 combinações de tratamentos (36 células experimentais)
+- **Não selecionado porque:**
+  - Triplicaria o tempo de execução (~15h → ~45h)
+  - Aumentaria complexidade sem adicionar valor proporcional ao objetivo principal
+  - Cronograma do TCC inviável para experimento dessa magnitude
+- **Decisão Final:** Janela temporal fixa em 30 dias; análise exploratória com 7 e 14 dias fica como **trabalho futuro**
 
 ### 9.2 Randomização e Alocação
 
@@ -1365,19 +1408,37 @@ Uma sessão corresponde a uma execução completa de um modelo, incluindo:
 
 #### Duração Estimada:
 
-**Por Sessão:**
+**Por Sessão (SEM validação cruzada):**
 - Regressão Linear: ~5 segundos
 - Média Móvel: ~2 segundos
-- ARIMA: ~30-60 segundos (mais lento)
+- ARIMA: ~30-60 segundos (mais lento, com grid search)
 - Exponential Smoothing: ~10 segundos
 
-**Total Estimado:**
-- RL: 30 × 5s = 150s = 2.5 min
-- MM: 30 × 2s = 60s = 1 min
-- ARIMA: 30 × 45s = 1350s = 22.5 min
-- ES: 30 × 10s = 300s = 5 min
+**IMPORTANTE: Com Validação Cruzada (k=5 folds):**
 
-**Tempo Total:** ~31 minutos + overhead (carregamento, logging) ≈ **45-60 minutos**
+Cada sessão inclui 5 folds de validação cruzada, multiplicando o tempo por aproximadamente 5x:
+
+**Tempo por Sessão (COM k-fold, k=5):**
+- Regressão Linear: ~5s × 5 folds = 25s por repetição
+- Média Móvel: ~2s × 5 folds = 10s por repetição
+- ARIMA: ~45s × 5 folds = 225s (3.75 min) por repetição
+  - **Nota:** ARIMA com grid search pode levar 4-5 minutos por fold em alguns casos
+  - **Estimativa conservadora:** ~5 min × 5 folds = 25 min por repetição
+- Exponential Smoothing: ~10s × 5 folds = 50s por repetição
+
+**Total Estimado (30 repetições × 4 modelos COM validação cruzada):**
+- RL: 30 × 25s = 750s = 12.5 min
+- MM: 30 × 10s = 300s = 5 min
+- ARIMA: 30 × 25 min = 750 min = **12.5 horas**
+- ES: 30 × 50s = 1500s = 25 min
+
+**Tempo Total Realista:** ~13-15 horas (considerando ARIMA como gargalo)
+
+**Estratégia de Mitigação:**
+- Executar em etapas (ex: 10 repetições por vez)
+- Executar durante a noite/períodos livres
+- Considerar usar `n_jobs=-1` para paralelização quando disponível
+- Otimizar grid search do ARIMA (limitar p, d, q a ranges menores)
 
 #### Justificativa do Número de Sessões:
 
@@ -1594,11 +1655,11 @@ print(f"Dataset final: {len(df)} observações válidas")
 - Documentar razão da exclusão no log do experimento
 - Manter registro de quantas séries foram excluídas e por quê
 
-### 10.4 Tamanho da Amostra Planejado (por Grupo)
+### 10.4 Número de Repetições Experimentais (por Modelo)
 
-#### Tamanho da Amostra:
+#### Número de Repetições:
 
-**N = 30 execuções por modelo**
+**N = 30 repetições experimentais por modelo**
 
 - **Total de Unidades Experimentais:** 120 (30 × 4 modelos)
 - **Total de Avaliações (com k-fold):** 600 (120 × 5 folds)
@@ -2049,13 +2110,18 @@ jupyter notebook analise/analise_resultados.ipynb
 - **Responsável:** Pesquisador
 - **Output:** Ambiente funcional
 
-**Passo 1.2 - Geração de Dados Sintéticos**
-- Executar script `gerar_dados.py`
-- Validar qualidade dos dados gerados (seção 10.2)
-- Salvar dataset em `data/dataset_cloud.csv`
-- **Duração:** 10 minutos
+**Passo 1.2 - Download e Preparação dos Dados Reais**
+- Baixar Google Cluster Data 2019 (via Kaggle ou BigQuery)
+- Executar script `preparar_dados.py` para:
+  - Extrair métricas de CPU e memória
+  - Agregar de 5 min para granularidade horária (1h)
+  - Selecionar período contínuo de 30 dias
+  - Calcular custos estimados baseados em tabelas de precificação
+- Validar qualidade dos dados conforme critérios da seção 10.2
+- Salvar dataset em `data/dataset_cloud_processado.csv`
+- **Duração:** 30 minutos (inclui download)
 - **Responsável:** Pesquisador
-- **Output:** `dataset_cloud.csv` (720 linhas × 6 colunas)
+- **Output:** `dataset_cloud_processado.csv` (~720 linhas × 4 colunas: timestamp, cpu, memory, cost)
 
 **Passo 1.3 - Validação do Dataset**
 - Análise exploratória visual (plots de séries temporais)
@@ -2065,12 +2131,20 @@ jupyter notebook analise/analise_resultados.ipynb
 - **Responsável:** Pesquisador + Orientador
 - **Output:** Dataset aprovado
 
-**Passo 1.4 - Preparação dos Seeds**
-- Gerar 30 seeds aleatórios (numpy.random.seed(42))
-- Salvar em `config/seeds.txt`
+**Passo 1.4 - Preparação dos Seeds para Reprodutibilidade**
+- **Objetivo:** Garantir reprodutibilidade e capturar variabilidade entre repetições
+- **Método:**
+  - Gerar 30 seeds aleatórios usando seed mestre fixo: `np.random.seed(42)`
+  - Seeds: `seeds = np.random.randint(0, 10000, size=30)`
+- **Uso dos Seeds:**
+  - Cada repetição `r` (de 1 a 30) usa `seed[r]`
+  - **Todos os 4 modelos na repetição `r` usam o mesmo `seed[r]`**
+  - Isso garante que todos os modelos recebem mesma divisão treino/teste em cada repetição
+  - Variação entre repetições captura robustez dos modelos
+- **Salvar em:** `config/seeds.txt`
 - **Duração:** 5 minutos
 - **Responsável:** Pesquisador
-- **Output:** Lista de 30 seeds
+- **Output:** Lista de 30 seeds + documentação de uso
 
 ---
 
@@ -2104,8 +2178,10 @@ Para cada repetição r = 1 até 30:
     d) **Cálculo de Métricas (Holdout)**
        - Calcular MAE, RMSE, MAPE no conjunto de teste
     
-    e) **Validação Cruzada k-fold**
-       - Aplicar 5-fold cross-validation nos dados de treino
+    e) **Validação Cruzada TimeSeriesSplit**
+       - **IMPORTANTE:** Usar TimeSeriesSplit (não k-fold tradicional) para preservar ordem temporal
+       - Aplicar 5-fold time series cross-validation nos dados de treino
+       - TimeSeriesSplit garante que treino sempre precede teste (sem shuffle)
        - Calcular MAE em cada fold
        - Registrar média e desvio padrão
     
@@ -2211,8 +2287,8 @@ Para cada repetição r = 1 até 30:
 
 ```mermaid
 flowchart TD
-    A[Definir escopo das métricas] --> B[Gerar dados sintéticos via Python]
-    B --> C[Pré-processamento das métricas]
+    A[Definir escopo das métricas] --> B[Baixar e processar Google Cluster Data 2019]
+    B --> C[Agregar dados 5min→1h e calcular custos estimados]
     C --> D{Dados contêm valores ausentes ou outliers?}
     D -->|Sim| E[Tratamento de dados: imputação ou remoção]
     D -->|Não| F[Normalização dos dados]
@@ -2245,10 +2321,11 @@ flowchart TD
 
 #### Justificativa:
 
-1. **Uso de Dados Sintéticos:**
-   - Dados são gerados sob controle total
-   - Não há incerteza sobre disponibilidade ou qualidade
-   - Possível validar geração antes de experimento principal
+1. **Uso de Dados Reais Públicos:**
+   - Dados do Google Cluster Data 2019 são bem documentados e validados
+   - Dataset já utilizado em centenas de pesquisas acadêmicas
+   - Qualidade e disponibilidade garantidas
+   - Possível validar pré-processamento antes de experimento principal
 
 2. **Modelos Estabelecidos:**
    - Todos os 4 modelos são bem conhecidos na literatura
@@ -2879,12 +2956,13 @@ Se overfitting não for detectado, pode parecer que um modelo é superior no tre
 
 ---
 
-#### Ameaça 2.6: Qualidade e Realismo dos Dados Sintéticos
+#### Ameaça 2.6: Estimativa de Custos (Não Custos Reais)
 
 **Descrição:**
-Embora o experimento utilize **dados reais do Google Cluster Data 2019** (não puramente sintéticos), a **conversão de métricas em custos é estimada**, não real:
-- Custos são calculados com tabelas de precificação públicas (AWS, Azure, GCP)
-- Não refletem custos reais do Google (que usa precificação interna)
+O experimento utiliza **métricas de uso REAIS do Google Cluster Data 2019** (CPU, memória), mas a **conversão de métricas em custos é ESTIMADA**, não real:
+- **Métricas de uso:** REAIS (CPU e memória de workloads de produção do Google)
+- **Custos:** ESTIMADOS usando tabelas de precificação públicas (AWS, Azure, GCP)
+- Custos não refletem precificação interna do Google
 - Modelo de precificação simplificado (relação linear entre métricas e custo)
 
 **Impacto:**
