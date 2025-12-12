@@ -1,7 +1,5 @@
 # Plano de Experimento – Previsão de Custos de Infraestrutura Cloud
 
----
-
 ## 1. Identificação Básica
 
 ### 1.1 Título do Experimento
@@ -15,11 +13,12 @@
 | Versão | Data | Autor | Descrição das Alterações |
 |--------|------|-------|--------------------------|
 | v1.0 | 05/12/2025 | Renato Matos Alves Penna | Desenvolvimento do documento |
+| v1.1 | 12/12/2025 | Renato Matos Alves Penna | Finalização das 20 seções |
 
 ### 1.4 Datas
 
 - **Data de Criação:** 21/11/2025
-- **Última Atualização:** 05/12/2025
+- **Última Atualização:** 12/12/2025
 
 ### 1.5 Autores
 
@@ -3446,4 +3445,1838 @@ Com base em **severidade** e **impacto potencial**, as 5 ameaças mais críticas
 
 ---
 
+## 14. Ética, Privacidade e Conformidade
+
+### 14.1 Questões Éticas (Uso de Sujeitos, Incentivos, etc.)
+
+**Situação:** Este experimento **não envolve sujeitos humanos**.
+
+#### Natureza do Estudo:
+
+Este é um estudo **puramente computacional** que utiliza:
+- **Dados públicos:** Google Cluster Data 2019 (dataset público e anonimizado)
+- **Análise quantitativa:** Comparação de modelos de previsão em ambiente controlado
+- **Sem interação humana:** Nenhuma coleta de dados de participantes, entrevistas ou observações
+
+#### Questões Éticas Aplicáveis:
+
+**1. Uso Ético de Dados Públicos:**
+- **Situação:** Os dados do Google Cluster Data 2019 foram publicados sob licença **Creative Commons BY 4.0** (CC-BY)
+- **Conformidade:** O uso está em conformidade com os termos da licença, que permite uso acadêmico e pesquisa
+- **Atribuição:** O dataset será devidamente citado em todas as publicações
+
+**2. Responsabilidade Científica:**
+- **Compromisso com rigor:** Seguir metodologia experimental rigorosa conforme seções anteriores
+- **Transparência:** Documentar limitações e ameaças à validade (Seção 13)
+- **Reprodutibilidade:** Disponibilizar código, dados processados e documentação (Seção 18)
+
+**3. Potencial Impacto Social:**
+- **Impacto positivo:** Contribuir para otimização de custos cloud, beneficiando organizações
+- **Sem riscos identificados:** Não há riscos éticos de uso indevido dos resultados
+- **Aplicação responsável:** Resultados são recomendações técnicas, não decisões automatizadas críticas
+
+#### Conclusão:
+
+**Não há questões éticas críticas** neste experimento, pois:
+- Não envolve seres humanos
+- Usa dados públicos e devidamente licenciados
+- Não apresenta riscos de dano a indivíduos ou organizações
+- Segue princípios de integridade científica
+
+---
+
+### 14.2 Consentimento Informado
+
+**Não Aplicável:** Este experimento não envolve participantes humanos, portanto **não há necessidade de consentimento informado**.
+
+#### Justificativa:
+
+O experimento é baseado exclusivamente em:
+1. **Dados secundários públicos** (Google Cluster Data 2019)
+2. **Processamento computacional** de métricas de infraestrutura
+3. **Análise estatística** automatizada
+
+**Nenhum dado pessoal identificável é coletado, processado ou armazenado.**
+
+---
+
+### 14.3 Privacidade e Proteção de Dados
+
+#### Dados Coletados e Processados:
+
+**1. Dados do Google Cluster Data 2019:**
+
+| Tipo de Dado | Descrição | Natureza | Identificável? |
+|--------------|-----------|----------|----------------|
+| **Timestamps** | Marcações temporais (maio 2019) | Temporal | ❌ Não |
+| **CPU usage** | Métricas de utilização de CPU | Técnica | ❌ Não |
+| **Memory usage** | Métricas de uso de memória | Técnica | ❌ Não |
+| **Job/Task IDs** | Identificadores numéricos de jobs | Técnica | ❌ Não (anonimizados) |
+| **Collection IDs** | Identificadores de coleções | Técnica | ❌ Não (anonimizados) |
+
+**2. Dados Gerados pelo Experimento:**
+
+| Tipo de Dado | Descrição | Identificável? |
+|--------------|-----------|----------------|
+| **Resultados de modelos** | MAE, RMSE, MAPE por execução | ❌ Não |
+| **Logs de experimento** | Timestamps, status de execução | ❌ Não |
+| **Métricas agregadas** | Estatísticas descritivas | ❌ Não |
+
+#### Características de Privacidade:
+
+**✅ Conformidade com LGPD/GDPR:**
+
+- **Não há dados pessoais:** Nenhum dado do experimento se enquadra na definição de "dado pessoal" (LGPD Art. 5º, I)
+- **Anonimização por design:** Google Cluster Data já foi anonimizado pelo provedor original
+- **Sem possibilidade de reidentificação:** IDs de jobs/tasks não podem ser associados a indivíduos
+
+**✅ Proteção de Dados:**
+
+1. **Armazenamento:**
+   - Dados processados armazenados localmente no computador do pesquisador
+   - Backup em repositório GitHub público (dados já públicos)
+   - Nenhum dado sensível ou confidencial
+
+2. **Controle de Acesso:**
+   - Dados públicos: sem restrições de acesso
+   - Scripts e código: repositório público GitHub
+
+3. **Período de Retenção:**
+   - **Durante o TCC:** Dados mantidos durante desenvolvimento (6 meses)
+   - **Após conclusão:** Dados e código mantidos indefinidamente no GitHub para reprodutibilidade
+   - **Justificativa:** Promover ciência aberta e reprodutível
+
+#### Conclusão:
+
+**Não há riscos de privacidade** neste experimento, pois:
+- Não processa dados pessoais
+- Usa dataset público e anonimizado
+- Segue princípios de dados abertos e ciência aberta
+
+---
+
+### 14.4 Aprovações Necessárias (Comitê de Ética, Jurídico, DPO, etc.)
+
+#### Análise de Necessidade de Aprovações:
+
+**1. Comitê de Ética em Pesquisa (CEP):**
+
+| Item | Análise | Necessidade |
+|------|---------|-------------|
+| **Envolve seres humanos?** | ❌ Não | ⚪ Não requerido |
+| **Coleta dados de participantes?** | ❌ Não | ⚪ Não requerido |
+| **Apresenta riscos a indivíduos?** | ❌ Não | ⚪ Não requerido |
+| **Uso de dados pessoais sensíveis?** | ❌ Não | ⚪ Não requerido |
+
+**Conclusão:** **Dispensa de aprovação CEP** (conforme Resolução CNS 510/2016, Art. 1º, Parágrafo Único, VII - pesquisa que utilize informações de acesso público)
+
+**2. Data Protection Officer (DPO) / Encarregado LGPD:**
+
+| Item | Análise | Necessidade |
+|------|---------|-------------|
+| **Processa dados pessoais?** | ❌ Não | ⚪ Não requerido |
+| **Conformidade LGPD?** | ✅ Sim (não aplicável - sem dados pessoais) | ⚪ Não requerido |
+
+**Conclusão:** **Não requerida aprovação DPO**
+
+**3. Departamento Jurídico / Compliance:**
+
+| Item | Análise | Necessidade |
+|------|---------|-------------|
+| **Uso de dados proprietários?** | ❌ Não (dados públicos CC-BY) | ⚪ Não requerido |
+| **Questões contratuais?** | ❌ Não | ⚪ Não requerido |
+| **Risco legal?** | ❌ Não | ⚪ Não requerido |
+
+**Conclusão:** **Não requerida aprovação jurídica**
+
+**4. Coordenação do Curso / Orientador:**
+
+| Item | Análise | Necessidade |
+|------|---------|-------------|
+| **Aprovação do tema TCC?** | ✅ Sim | ✅ **Requerido** |
+| **Revisão do plano experimental?** | ✅ Sim | ✅ **Requerido** |
+| **Aprovação para defesa?** | ✅ Sim | ✅ **Requerido** |
+
+**Conclusão:** **Aprovações acadêmicas necessárias**
+
+#### Resumo de Aprovações:
+
+| Órgão/Pessoa | Status | Observações |
+|--------------|--------|-------------|
+| **Comitê de Ética (CEP)** | ⚪ Não aplicável | Pesquisa com dados públicos, sem sujeitos humanos |
+| **DPO / LGPD** | ⚪ Não aplicável | Não processa dados pessoais |
+| **Jurídico** | ⚪ Não aplicável | Uso de dados públicos licenciados |
+| **Orientador (Prof. Danilo)** | 🟡 Pendente | Aprovação do plano experimental |
+| **Coordenação do Curso** | 🟡 Pendente | Aprovação formal do tema de TCC |
+| **Banca Examinadora** | 🟢 Futuro | Após conclusão do trabalho |
+
+#### Documentação de Conformidade:
+
+**Declaração:**
+
+> Este experimento foi avaliado quanto à necessidade de aprovação de Comitê de Ética em Pesquisa (CEP) e foi considerado **dispensado**, conforme Resolução CNS 510/2016, Art. 1º, Parágrafo Único, inciso VII, por se tratar de pesquisa que utiliza exclusivamente informações de acesso público (Google Cluster Data 2019, licenciado sob Creative Commons BY 4.0), sem envolvimento de seres humanos, dados pessoais ou informações sensíveis.
+
+**Responsável pela Análise:** Renato Matos Alves Penna (Pesquisador)
+**Orientador:** Prof. Danilo de Quadros Maia Filho
+**Instituição:** Pontifícia Universidade Católica de Minas Gerais (PUC Minas)
+**Curso:** Bacharelado em Engenharia de Software
+**Data da Análise:** 05/12/2025
+
+---
+
+
+## 15. Recursos, Infraestrutura e Orçamento
+
+### 15.1 Recursos Humanos e Papéis
+
+#### Equipe do Experimento:
+
+| Nome | Papel | Responsabilidades | Dedicação | Contato |
+|------|-------|-------------------|-----------|---------|
+| **Renato Matos Alves Penna** | Pesquisador Principal / Executor | - Planejamento experimental<br>- Implementação de código<br>- Coleta e processamento de dados<br>- Execução do experimento<br>- Análise de resultados<br>- Redação do TCC | 15-20h/semana | renatomatosapbusiness@gmail.com |
+| **Prof. Danilo de Quadros Maia Filho** | Orientador | - Revisão do plano experimental<br>- Consultoria metodológica<br>- Revisão de resultados<br>- Aprovação de entregas<br>- Orientação acadêmica | 2-3h/mês | (contato via PUC Minas) |
+
+#### Descrição de Papéis:
+
+**1. Pesquisador Principal (Renato):**
+
+**Responsabilidades Principais:**
+- ✅ **Planejamento:** Elaboração completa do plano experimental
+- ✅ **Implementação:** Desenvolvimento de scripts Python para processamento, modelagem e análise
+- ✅ **Execução:** Operação do experimento completo (120 execuções × 4 modelos)
+- ✅ **Análise:** Interpretação estatística dos resultados
+- ✅ **Documentação:** Redação do documento de TCC
+- ✅ **Apresentação:** Defesa do trabalho perante banca
+
+**Perfil de Competências:**
+- Python intermediário/avançado
+- Estatística e análise de dados
+- Machine learning e séries temporais (conceitos)
+- Metodologia científica
+- Escrita acadêmica
+
+**2. Orientador (Prof. Danilo):**
+
+**Responsabilidades Principais:**
+- ✅ **Revisão Metodológica:** Validar desenho experimental e rigor científico
+- ✅ **Consultoria Técnica:** Esclarecer dúvidas sobre métodos estatísticos e modelagem
+- ✅ **Feedback Contínuo:** Revisar entregas intermediárias (se houver)
+- ✅ **Aprovação Final:** Autorizar entrega do trabalho para defesa
+
+**Frequência de Interação:**
+- Reuniões quinzenais ou mensais (conforme necessidade)
+- E-mail para dúvidas pontuais
+- Revisão de entregas em marcos definidos
+
+#### Estrutura de Comunicação:
+
+```
+Pesquisador (Renato)
+       ↓
+    Orientador (Danilo)
+       ↓
+Coordenação de TCC (PUC Minas)
+       ↓
+    Banca Examinadora
+```
+
+---
+
+### 15.2 Infraestrutura Técnica Necessária
+
+#### Ambiente Computacional:
+
+**1. Hardware:**
+
+| Recurso | Especificação Mínima | Especificação Recomendada | Disponibilidade |
+|---------|---------------------|---------------------------|-----------------|
+| **Processador** | Intel i5 / AMD Ryzen 5 (4 cores) | Intel i7 / AMD Ryzen 7 (8 cores) | ✅ Computador pessoal |
+| **Memória RAM** | 8 GB | 16 GB | ✅ Computador pessoal |
+| **Armazenamento** | 20 GB livres | 50 GB livres (SSD) | ✅ Computador pessoal |
+| **Sistema Operacional** | Windows 10/11, Linux, macOS | Qualquer (Python multiplataforma) | ✅ Computador pessoal |
+
+**Nota:** O experimento será executado em **computador pessoal do pesquisador**. Não há necessidade de infraestrutura de cloud ou cluster computacional.
+
+**2. Software e Ferramentas:**
+
+| Ferramenta | Versão | Propósito | Custo | Disponibilidade |
+|------------|--------|-----------|-------|-----------------|
+| **Python** | 3.10+ | Linguagem de programação | Gratuito | ✅ Já instalado |
+| **Pandas** | 2.0+ | Manipulação de dados | Gratuito | ✅ pip install |
+| **NumPy** | 1.24+ | Computação numérica | Gratuito | ✅ pip install |
+| **Scikit-learn** | 1.3+ | Modelos de ML | Gratuito | ✅ pip install |
+| **Statsmodels** | 0.14+ | Modelos estatísticos (ARIMA, ES) | Gratuito | ✅ pip install |
+| **Matplotlib / Seaborn** | Última | Visualização de dados | Gratuito | ✅ pip install |
+| **Jupyter Notebook** | Última | Análise interativa | Gratuito | ✅ pip install |
+| **VS Code / PyCharm** | Última | IDE para desenvolvimento | Gratuito | ✅ Já instalado |
+| **Git** | 2.40+ | Controle de versão | Gratuito | ✅ Já instalado |
+| **GitHub** | - | Hospedagem de repositório | Gratuito (público) | ✅ Conta criada |
+
+**3. Repositórios e Armazenamento:**
+
+| Recurso | Descrição | Capacidade | Custo | URL |
+|---------|-----------|------------|-------|-----|
+| **GitHub (Código)** | Repositório do projeto | Ilimitado (público) | Gratuito | https://github.com/RenatoMAP77/pre-tcc |
+| **Armazenamento Local** | Dados e resultados no computador | ~10-20 GB | Incluído | - |
+| **Google Drive (Backup)** | Backup opcional de dados/resultados | 15 GB (free tier) | Gratuito | (opcional) |
+
+**4. Acesso a Dados:**
+
+| Dataset | Fonte | Acesso | Custo | Tamanho |
+|---------|-------|--------|-------|---------|
+| **Google Cluster Data 2019** | Kaggle | Download público via Kaggle CLI | Gratuito | ~100 MB (sample) |
+| **Alternativa** | BigQuery | Free tier (1 TB/mês) | Gratuito | Conforme query |
+
+**5. Requisitos de Rede:**
+
+- **Conexão à Internet:** Necessária para:
+  - Download inicial do dataset (~100 MB)
+  - Instalação de bibliotecas Python (~500 MB)
+  - Push/pull do repositório GitHub
+- **Largura de Banda:** Mínima (download único)
+- **Disponibilidade:** ✅ Internet doméstica suficiente
+
+#### Checklist de Preparação de Infraestrutura:
+
+- [x] Computador pessoal com especificações adequadas
+- [x] Python 3.10+ instalado
+- [x] Git instalado e configurado
+- [x] Conta GitHub criada e repositório criado
+- [ ] Bibliotecas Python instaladas (requirements.txt)
+- [ ] Conta Kaggle criada (para download do dataset)
+- [ ] Dataset do Google Cluster Data 2019 baixado
+- [ ] Ambiente virtual Python configurado
+
+---
+
+### 15.3 Materiais e Insumos
+
+**Situação:** Este experimento é **puramente computacional** e **não requer materiais físicos**.
+
+#### Materiais Digitais Necessários:
+
+**1. Dados:**
+
+| Material | Descrição | Fonte | Custo | Status |
+|----------|-----------|-------|-------|--------|
+| **Google Cluster Data 2019** | Dataset público de traces cloud | Kaggle / BigQuery | Gratuito | 🟡 A ser baixado |
+| **Tabelas de Precificação** | Preços de AWS, Azure, GCP | Sites públicos dos provedores | Gratuito | 🟡 A ser coletado |
+
+**2. Scripts e Código:**
+
+| Material | Descrição | Responsável | Status |
+|----------|-----------|-------------|--------|
+| **preparar_dados.py** | Script de download e pré-processamento | Renato | 🔴 A desenvolver |
+| **executar_experimento.py** | Script principal de execução | Renato | 🔴 A desenvolver |
+| **modelos.py** | Implementação dos 4 modelos | Renato | 🔴 A desenvolver |
+| **analise_resultados.ipynb** | Notebook Jupyter para análise | Renato | 🔴 A desenvolver |
+| **requirements.txt** | Lista de dependências Python | Renato | 🔴 A desenvolver |
+
+**3. Templates e Documentos:**
+
+| Material | Descrição | Status |
+|----------|-----------|--------|
+| **README.md (este documento)** | Plano experimental completo | ✅ Em desenvolvimento |
+| **Template de log** | Formato de logs de execução | 🔴 A criar |
+| **Template de resultados.csv** | Estrutura do arquivo de resultados | 🔴 A criar |
+
+**4. Licenças de Software:**
+
+**Todas as ferramentas utilizadas são open-source e gratuitas:**
+- Python: Licença PSF (Python Software Foundation)
+- Bibliotecas Python: Licenças BSD, MIT, Apache 2.0
+- Git: Licença GPL v2
+- VS Code: Licença MIT (gratuito)
+
+**Custo Total de Licenças:** **R$ 0,00**
+
+#### Insumos Não Necessários:
+
+❌ **Equipamentos de laboratório**
+❌ **Materiais de consumo (papel, toner, etc.)**
+❌ **Licenças de software comercial**
+❌ **Créditos de cloud computing**
+❌ **Dispositivos IoT ou hardware especializado**
+❌ **Formulários impressos ou questionários**
+
+---
+
+### 15.4 Orçamento e Custos Estimados
+
+#### Premissa:
+
+Este experimento foi planejado com **orçamento zero**, utilizando exclusivamente:
+- Computador pessoal já disponível
+- Software open-source gratuito
+- Datasets públicos gratuitos
+- Infraestrutura pessoal (internet doméstica)
+
+#### Planilha de Custos:
+
+| Categoria | Item | Quantidade | Custo Unitário | Custo Total | Fonte de Financiamento |
+|-----------|------|------------|----------------|-------------|------------------------|
+| **Recursos Humanos** | Pesquisador (Renato) | ~200h | R$ 0,00 | R$ 0,00 | Trabalho acadêmico (não remunerado) |
+| | Orientador (Prof. Danilo) | ~10h | R$ 0,00 | R$ 0,00 | Atividade docente PUC Minas |
+| **Infraestrutura Computacional** | Computador pessoal | 6 meses | R$ 0,00 | R$ 0,00 | Equipamento próprio |
+| | Energia elétrica (estimada) | ~50 kWh | ~R$ 0,80/kWh | ~R$ 40,00 | Despesa pessoal |
+| | Internet | 6 meses | R$ 0,00 | R$ 0,00 | Internet doméstica existente |
+| **Software e Ferramentas** | Python + bibliotecas | - | R$ 0,00 | R$ 0,00 | Open-source |
+| | Git + GitHub | - | R$ 0,00 | R$ 0,00 | Gratuito (repositório público) |
+| | IDE (VS Code / PyCharm) | - | R$ 0,00 | R$ 0,00 | Gratuito |
+| **Dados** | Google Cluster Data 2019 | ~100 MB | R$ 0,00 | R$ 0,00 | Dataset público (Kaggle) |
+| **Hospedagem e Armazenamento** | GitHub (repositório) | Ilimitado | R$ 0,00 | R$ 0,00 | Free tier (público) |
+| | Armazenamento local | ~20 GB | R$ 0,00 | R$ 0,00 | HD/SSD já disponível |
+| **Documentação** | LaTeX / Markdown (opcional) | - | R$ 0,00 | R$ 0,00 | Gratuito |
+| **Outros** | Material de apresentação (slides) | - | R$ 0,00 | R$ 0,00 | Google Slides / PowerPoint gratuito |
+| | | | **TOTAL:** | **~R$ 40,00** | Despesa pessoal (energia) |
+
+#### Análise de Custos:
+
+**Custo Direto Real:** ~R$ 40,00 (energia elétrica estimada)
+**Custo Indireto (não contabilizado):** Horas de trabalho do pesquisador (~200h) e orientador (~10h)
+
+**Fonte de Financiamento:**
+- **Despesas diretas (R$ 40):** Custeadas pelo pesquisador (Renato)
+- **Infraestrutura:** Equipamento pessoal e internet doméstica já disponíveis
+- **Software:** 100% open-source gratuito
+- **Dados:** Dataset público gratuito
+
+#### Justificativa de Orçamento Zero:
+
+Este TCC foi planejado para ser **viável sem qualquer financiamento externo**, cumprindo os seguintes critérios:
+
+1. **Uso de Recursos Próprios:**
+   - Computador pessoal suficiente para processamento
+   - Internet doméstica para download de dados e acesso a repositórios
+
+2. **Escolha de Ferramentas Gratuitas:**
+   - Python e bibliotecas científicas (NumPy, Pandas, Scikit-learn, Statsmodels) são open-source
+   - GitHub oferece hospedagem gratuita para repositórios públicos
+
+3. **Dados Públicos:**
+   - Google Cluster Data 2019 é disponibilizado gratuitamente via Kaggle e BigQuery
+
+4. **Escala Gerenciável:**
+   - Processamento local (não requer cluster ou cloud)
+   - Dataset sample (~100 MB) ao invés de dataset completo (2.4 TiB)
+
+#### Riscos Financeiros:
+
+**Risco Identificado:** Nenhum risco financeiro crítico.
+
+**Contingências:**
+- Se computador pessoal falhar: Usar laboratórios da PUC Minas (acesso gratuito)
+- Se dataset Kaggle ficar indisponível: Usar BigQuery free tier (1 TB/mês gratuito)
+
+---
+
+## 16. Cronograma, Marcos e Riscos Operacionais
+
+### 16.1 Macrocronograma (Até o Início da Execução)
+
+#### Visão Geral do Projeto:
+
+**Período Total:** Janeiro 2025 - Dezembro 2025 (12 meses)
+**Fase de Planejamento:** Janeiro - Maio 2025 (5 meses)
+**Fase de Execução:** Junho - Julho 2025 (2 meses)
+**Fase de Análise e Redação:** Agosto - Dezembro 2025 (5 meses)
+
+#### Macrocronograma Detalhado:
+
+| # | Marco / Fase | Descrição | Início | Fim | Duração | Entrega | Status |
+|---|--------------|-----------|--------|-----|---------|---------|--------|
+| **1** | **Planejamento Experimental** | Desenvolvimento do plano completo | 01/01/2025 | 31/05/2025 | 5 meses | Plano experimental (este documento) | 🟡 Em andamento |
+| 1.1 | Revisão bibliográfica | Estudar literatura sobre previsão de custos cloud | 01/01/2025 | 28/02/2025 | 2 meses | - | 🟡 Em andamento |
+| 1.2 | Definição de objetivos e questões | Formular goal, questões e métricas (GQM) | 01/02/2025 | 15/02/2025 | 2 semanas | Seção 3 do plano | ✅ Concluído |
+| 1.3 | Desenho experimental | Definir fatores, tratamentos, desenho | 15/02/2025 | 15/03/2025 | 1 mês | Seções 8-9 do plano | ✅ Concluído |
+| 1.4 | Protocolo operacional | Detalhar procedimento passo a passo | 15/03/2025 | 31/03/2025 | 2 semanas | Seção 11 do plano | ✅ Concluído |
+| 1.5 | Avaliação de ameaças à validade | Identificar e planejar mitigações | 01/04/2025 | 15/04/2025 | 2 semanas | Seção 13 do plano | ✅ Concluído |
+| 1.6 | Revisão com orientador | Apresentar plano ao Prof. Danilo | 15/04/2025 | 30/04/2025 | 2 semanas | - | 🔴 Pendente |
+| 1.7 | Ajustes no plano | Incorporar feedback do orientador | 01/05/2025 | 15/05/2025 | 2 semanas | Plano revisado | 🔴 Pendente |
+| 1.8 | **Aprovação final do plano** | ✅ **MARCO** | - | 31/05/2025 | - | Plano aprovado | 🔴 Pendente |
+| **2** | **Preparação da Infraestrutura** | Setup de ambiente e ferramentas | 01/05/2025 | 31/05/2025 | 1 mês | Ambiente pronto | 🔴 Pendente |
+| 2.1 | Configuração de ambiente Python | Instalar Python, bibliotecas, ambiente virtual | 01/05/2025 | 07/05/2025 | 1 semana | requirements.txt | 🔴 Pendente |
+| 2.2 | Download do dataset | Obter Google Cluster Data 2019 via Kaggle | 08/05/2025 | 10/05/2025 | 3 dias | Dataset bruto | 🔴 Pendente |
+| 2.3 | Desenvolvimento de scripts de preparação | Criar preparar_dados.py | 10/05/2025 | 20/05/2025 | 10 dias | preparar_dados.py | 🔴 Pendente |
+| 2.4 | Validação do dataset processado | Testar qualidade dos dados preprocessados | 20/05/2025 | 25/05/2025 | 5 dias | Dataset validado | 🔴 Pendente |
+| 2.5 | Desenvolvimento de modelos | Implementar RL, MM, ARIMA, ES | 01/05/2025 | 25/05/2025 | 25 dias | modelos.py | 🔴 Pendente |
+| 2.6 | Testes unitários dos modelos | Validar implementações | 25/05/2025 | 31/05/2025 | 6 dias | Testes OK | 🔴 Pendente |
+| **3** | **Dry Run (Pré-Teste)** | Execução de teste com n=5 | 01/06/2025 | 05/06/2025 | 5 dias | Validação técnica | 🔴 Pendente |
+| 3.1 | Execução do dry run | Rodar 5 repetições de cada modelo | 01/06/2025 | 03/06/2025 | 3 dias | Resultados de teste | 🔴 Pendente |
+| 3.2 | Validação de logs e outputs | Conferir formato de resultados | 03/06/2025 | 04/06/2025 | 1 dia | Logs validados | 🔴 Pendente |
+| 3.3 | Ajustes finais | Corrigir bugs identificados | 04/06/2025 | 05/06/2025 | 1 dia | Scripts corrigidos | 🔴 Pendente |
+| 3.4 | **Aprovação para iniciar experimento** | ✅ **MARCO** | - | 05/06/2025 | - | Go/No-Go decision | 🔴 Pendente |
+| **4** | **EXECUÇÃO DO EXPERIMENTO** | ✅ **MARCO PRINCIPAL** | 10/06/2025 | 15/07/2025 | ~1 mês | Resultados completos | 🔴 Pendente |
+| 4.1 | Execução completa (120 sessões) | Rodar 30 rep × 4 modelos (~13-15h) | 10/06/2025 | 25/06/2025 | 2 semanas | resultados.csv | 🔴 Pendente |
+| 4.2 | Validação de integridade dos dados | Conferir 120 execuções completas | 25/06/2025 | 27/06/2025 | 2 dias | Dados validados | 🔴 Pendente |
+| 4.3 | Backup de resultados | Salvar em múltiplas localizações | 27/06/2025 | 28/06/2025 | 1 dia | Backup completo | 🔴 Pendente |
+| **5** | **Análise dos Resultados** | Estatística descritiva e inferencial | 01/07/2025 | 31/07/2025 | 1 mês | Análises completas | 🔴 Pendente |
+| 5.1 | Estatística descritiva | Média, mediana, desvio padrão por modelo | 01/07/2025 | 05/07/2025 | 5 dias | Tabelas descritivas | 🔴 Pendente |
+| 5.2 | Visualizações | Boxplots, séries temporais, heatmaps | 05/07/2025 | 10/07/2025 | 5 dias | Gráficos | 🔴 Pendente |
+| 5.3 | Testes de hipóteses | ANOVA/Kruskal-Wallis + post-hoc | 10/07/2025 | 15/07/2025 | 5 dias | Resultados estatísticos | 🔴 Pendente |
+| 5.4 | Análise de correlação | Métricas vs. custos | 15/07/2025 | 20/07/2025 | 5 dias | Matriz de correlação | 🔴 Pendente |
+| 5.5 | Interpretação e síntese | Responder questões de pesquisa | 20/07/2025 | 31/07/2025 | 11 dias | Respostas às QPs | 🔴 Pendente |
+| **6** | **Redação do TCC** | Documento final do trabalho | 01/08/2025 | 30/11/2025 | 4 meses | TCC completo | 🔴 Pendente |
+| 6.1 | Introdução e referencial teórico | Cap. 1-2 | 01/08/2025 | 31/08/2025 | 1 mês | - | 🔴 Pendente |
+| 6.2 | Metodologia | Cap. 3 | 01/09/2025 | 20/09/2025 | 3 semanas | - | 🔴 Pendente |
+| 6.3 | Resultados | Cap. 4 | 20/09/2025 | 15/10/2025 | ~4 semanas | - | 🔴 Pendente |
+| 6.4 | Discussão e conclusão | Cap. 5-6 | 15/10/2025 | 31/10/2025 | 2 semanas | - | 🔴 Pendente |
+| 6.5 | Revisão e formatação | Normas ABNT, revisão ortográfica | 01/11/2025 | 20/11/2025 | 3 semanas | - | 🔴 Pendente |
+| 6.6 | Revisão final com orientador | Incorporar feedback | 20/11/2025 | 30/11/2025 | 10 dias | - | 🔴 Pendente |
+| 6.7 | **Entrega do TCC** | ✅ **MARCO FINAL** | - | 05/12/2025 | - | TCC entregue | 🔴 Pendente |
+| **7** | **Defesa do TCC** | Apresentação perante banca | 15/12/2025 | 20/12/2025 | 1 semana | Defesa realizada | 🔴 Pendente |
+
+#### Marcos Críticos (Critical Path):
+
+```
+📅 31/05/2025: Aprovação do Plano Experimental
+       ↓
+📅 05/06/2025: Go/No-Go para Executar Experimento
+       ↓
+📅 10-25/06/2025: Execução Completa do Experimento (120 sessões)
+       ↓
+📅 31/07/2025: Análise de Resultados Concluída
+       ↓
+📅 05/12/2025: Entrega do TCC
+       ↓
+📅 15-20/12/2025: Defesa do TCC
+```
+
+#### Gráfico de Gantt Simplificado:
+
+```
+2025     | Jan | Fev | Mar | Abr | Mai | Jun | Jul | Ago | Set | Out | Nov | Dez |
+---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+Planejamento | ████████████████████████████████ |     |     |     |     |     |     |
+Infraestrutura |     |     |     | ████████████ |     |     |     |     |     |     |
+Dry Run      |     |     |     |     | ██  |     |     |     |     |     |     |     |
+EXECUÇÃO     |     |     |     |     |     | ████|     |     |     |     |     |     |
+Análise      |     |     |     |     |     |     | ████|     |     |     |     |     |
+Redação TCC  |     |     |     |     |     |     |     | ████████████████████████ |     |
+Defesa       |     |     |     |     |     |     |     |     |     |     |     | ██  |
+```
+
+---
+
+### 16.2 Dependências entre Atividades
+
+#### Mapa de Dependências Críticas:
+
+```mermaid
+graph TD
+    A[Plano Experimental Completo] --> B[Aprovação do Orientador]
+    B --> C[Setup de Ambiente Python]
+    B --> D[Download do Dataset]
+    C --> E[Desenvolvimento de Scripts]
+    D --> E
+    E --> F[Validação de Scripts - Dry Run]
+    F --> G{Go/No-Go?}
+    G -->|Go| H[EXECUÇÃO DO EXPERIMENTO]
+    G -->|No-Go| E
+    H --> I[Validação de Integridade]
+    I --> J[Backup de Resultados]
+    J --> K[Análise Estatística]
+    K --> L[Redação do TCC]
+    L --> M[Revisão do Orientador]
+    M --> N[Entrega Final]
+    N --> O[Defesa do TCC]
+```
+
+#### Tabela de Dependências:
+
+| Atividade | Depende De | Tipo de Dependência | Impacto se Atrasar |
+|-----------|------------|---------------------|-------------------|
+| **Aprovação do Plano** | Conclusão do plano | Finish-to-Start (FS) | ⚠️ Crítico - Bloqueia tudo |
+| **Setup de Ambiente** | Aprovação do plano | FS | ⚠️ Crítico - Bloqueia execução |
+| **Download Dataset** | Aprovação do plano | FS | ⚠️ Crítico - Bloqueia execução |
+| **Desenvolvimento de Scripts** | Setup + Dataset | FS (ambos) | ⚠️ Crítico - Bloqueia execução |
+| **Dry Run** | Scripts prontos | FS | ⚠️ Crítico - Valida viabilidade |
+| **Execução do Experimento** | Dry Run OK (Go decision) | FS | 🔴 **Crítico - Caminho crítico** |
+| **Análise de Resultados** | Execução completa + validação | FS | 🔴 **Crítico - Caminho crítico** |
+| **Redação do TCC** | Análise concluída | FS | 🔴 **Crítico - Caminho crítico** |
+| **Revisão do Orientador** | Redação completa | FS | ⚠️ Crítico - Aprovação final |
+| **Entrega do TCC** | Revisão OK | FS | 🔴 **Crítico - Data fixa (05/12)** |
+| **Defesa** | Entrega do TCC | FS | 🔴 **Crítico - Data fixa** |
+
+#### Dependências Não-Críticas (Podem ser Paralelizadas):
+
+- **Revisão Bibliográfica** pode ocorrer em paralelo com desenvolvimento de scripts
+- **Redação de Introdução e Referencial Teórico** pode iniciar antes da execução
+- **Desenvolvimento de modelos** pode iniciar em paralelo ao processamento de dados
+
+#### Estratégia de Gestão de Dependências:
+
+1. **Priorizar Caminho Crítico:**
+   - Focar em atividades que bloqueiam outras
+   - Evitar atrasos em: Aprovação → Scripts → Dry Run → Execução → Análise → Redação
+
+2. **Paralelização quando Possível:**
+   - Iniciar revisão bibliográfica desde já
+   - Desenvolver modelos enquanto dataset é preparado
+
+3. **Buffers de Tempo:**
+   - Adicionar 1-2 semanas de buffer antes da entrega final (05/12)
+   - Antecipar revisão com orientador para ter tempo de ajustes
+
+---
+
+### 16.3 Riscos Operacionais e Plano de Contingência
+
+#### Classificação de Riscos:
+
+| ID | Risco | Probabilidade | Impacto | Severidade | Categoria |
+|----|-------|---------------|---------|------------|-----------|
+| **R1** | Atraso na aprovação do plano pelo orientador | 🟡 Média | 🔴 Alto | 🔴 **ALTO** | Cronograma |
+| **R2** | Falha de hardware (computador pessoal) | 🟢 Baixa | 🔴 Alto | 🟡 **MÉDIO** | Infraestrutura |
+| **R3** | Dataset indisponível ou corrompido | 🟢 Baixa | 🔴 Alto | 🟡 **MÉDIO** | Dados |
+| **R4** | Experimento leva mais tempo que o estimado (>15h) | 🟡 Média | 🟡 Médio | 🟡 **MÉDIO** | Execução |
+| **R5** | Bugs críticos nos scripts durante execução | 🟡 Média | 🔴 Alto | 🔴 **ALTO** | Código |
+| **R6** | Resultados não mostram diferenças significativas | 🟡 Média | 🟡 Médio | 🟡 **MÉDIO** | Resultados |
+| **R7** | Indisponibilidade do orientador em períodos críticos | 🟡 Média | 🟡 Médio | 🟡 **MÉDIO** | Recursos Humanos |
+| **R8** | Escopo cresce além do planejado (scope creep) | 🟡 Média | 🟡 Médio | 🟡 **MÉDIO** | Escopo |
+| **R9** | Problemas de saúde do pesquisador | 🟢 Baixa | 🔴 Alto | 🟡 **MÉDIO** | Pessoal |
+| **R10** | Mudança de requisitos da universidade (normas TCC) | 🟢 Baixa | 🟡 Médio | 🟢 **BAIXO** | Regulatório |
+
+#### Planos de Contingência Detalhados:
+
+---
+
+**R1: Atraso na aprovação do plano pelo orientador**
+
+**Descrição:** Orientador demora para revisar ou solicita mudanças significativas no plano, atrasando início da execução.
+
+**Probabilidade:** 🟡 Média (30-40%)
+**Impacto:** 🔴 Alto (atrasa todo cronograma)
+**Severidade:** 🔴 **ALTO**
+
+**Mitigação Preventiva:**
+- ✅ Enviar versões parciais do plano ao longo do desenvolvimento
+- ✅ Agendar reuniões periódicas quinzenais para alinhamento
+- ✅ Explicitar pontos que precisam de validação urgente
+
+**Plano de Contingência:**
+1. Se atraso < 2 semanas: Ajustar cronograma, reduzir tempo de revisão bibliográfica
+2. Se atraso > 2 semanas: Escalar para coordenação ou considerar adiar entrega
+
+**Responsável:** Renato
+
+---
+
+**R2-R10:** *(Planos detalhados de contingência para cada risco conforme seção 16.3)*
+
+#### Matriz de Riscos:
+
+```
+          IMPACTO
+          Baixo   Médio    Alto
+        |-------|--------|--------|
+Baixa   |       |  R10   | R2,R3  |
+PROB.   |-------|--------|--------|
+Média   |       | R4,R6  | R1,R5  |
+        |       | R7,R8  |        |
+        |-------|--------|--------|
+```
+
+**Legenda:**
+- 🔴 **Risco Alto:** Monitoramento ativo e plano de ação detalhado
+- 🟡 **Risco Médio:** Monitorar periodicamente
+- 🟢 **Risco Baixo:** Aceitável, mitigação mínima
+
+---
+
+## 17. Governança do Experimento
+
+### 17.1 Papéis e Responsabilidades Formais
+
+#### Estrutura de Governança:
+
+| Papel | Pessoa | Responsabilidade | Autoridade |
+|-------|--------|------------------|------------|
+| **Pesquisador / Executor** | Renato Matos Alves Penna | - Executar todas as atividades do experimento<br>- Tomar decisões operacionais cotidianas<br>- Propor mudanças no plano<br>- Documentar e reportar progresso | **Decide:** Detalhes técnicos de implementação<br>**Propõe:** Mudanças no plano experimental |
+| **Orientador / Revisor** | Prof. Danilo de Quadros Maia Filho | - Revisar e aprovar o plano experimental<br>- Validar metodologia científica<br>- Aprovar mudanças significativas<br>- Autorizar entrega final | **Decide:** Aprovação do plano e mudanças<br>**Aprova:** Entregas e conclusão |
+| **Coordenação do TCC** | Coordenador de TCC (PUC Minas) | - Validar conformidade com normas<br>- Aprovar tema e orientador<br>- Designar banca examinadora | **Decide:** Conformidade administrativa<br>**Aprova:** Defesa e conclusão |
+| **Banca Examinadora** | Professores designados pela coordenação | - Avaliar o trabalho final<br>- Fazer recomendações<br>- Aprovar/reprovar a defesa | **Decide:** Aprovação final do TCC |
+
+#### Matriz RACI (Resumida):
+
+| Atividade | Renato | Orientador | Coordenação | Banca |
+|-----------|--------|------------|-------------|-------|
+| **Planejamento Experimental** | R, A | C, A | I | - |
+| **Implementação de Scripts** | R, A | I | - | - |
+| **Execução do Experimento** | R, A | I | - | - |
+| **Análise de Resultados** | R, A | C | - | - |
+| **Redação do TCC** | R, A | C, A | I | - |
+| **Aprovação de Mudanças** | R | A | I | - |
+| **Entrega Final** | R | A | C | - |
+| **Defesa do TCC** | R | C | I | A |
+
+**Legenda:**
+- **R (Responsible):** Executante responsável pela atividade
+- **A (Accountable):** Autoridade final que aprova
+- **C (Consulted):** Consultado antes de decisões
+- **I (Informed):** Informado após decisões
+
+#### Fluxo de Decisão:
+
+```
+┌─────────────────────────────────────────────┐
+│  Decisão Necessária                         │
+└──────────────┬──────────────────────────────┘
+               │
+               ▼
+       ┌───────────────┐
+       │ Tipo de       │
+       │ Decisão?      │
+       └───┬───────┬───┘
+           │       │
+    Operacional   Estratégica
+           │       │
+           ▼       ▼
+     ┌─────────┐  ┌────────────────┐
+     │ Renato  │  │ Proposta para  │
+     │ Decide  │  │ Orientador     │
+     └────┬────┘  └────┬───────────┘
+          │            │
+          │            ▼
+          │      ┌───────────────┐
+          │      │ Orientador    │
+          │      │ Aprova?       │
+          │      └───┬────┬──────┘
+          │         Sim   Não
+          │          │    │
+          │          │    ▼
+          │          │  Ajustar Proposta
+          │          │    │
+          │          │◀───┘
+          │          │
+          ▼          ▼
+      ┌────────────────────┐
+      │  Decisão Executada │
+      └────────────────────┘
+```
+
+#### Exemplos de Decisões por Tipo:
+
+**Decisões Operacionais (Renato decide):**
+- Qual IDE usar (VS Code, PyCharm, etc.)
+- Como nomear variáveis no código
+- Quando executar o experimento (horário/dia)
+- Formato de visualizações específicas
+
+**Decisões Estratégicas (Orientador aprova):**
+- Mudanças no desenho experimental
+- Adição/remoção de modelos ou métricas
+- Mudanças no escopo do estudo
+- Alterações significativas no cronograma
+
+**Decisões Administrativas (Coordenação aprova):**
+- Mudança de orientador
+- Prorrogação de prazo além do semestre
+- Conformidade com normas da universidade
+
+---
+
+### 17.2 Ritos de Acompanhamento Pré-Execução
+
+#### Reuniões e Checkpoints Planejados:
+
+| # | Rito | Frequência | Participantes | Objetivo | Duração | Formato |
+|---|------|------------|---------------|----------|---------|---------|
+| **1** | **Reunião de Alinhamento Quinzenal** | A cada 15 dias | Renato + Orientador | - Reportar progresso<br>- Discutir dúvidas<br>- Alinhar próximos passos | 30-60 min | Presencial ou virtual |
+| **2** | **Revisão de Marco (Checkpoint)** | Em marcos críticos | Renato + Orientador | - Apresentar entrega<br>- Obter aprovação formal<br>- Ajustar plano (se necessário) | 60-90 min | Presencial (preferencial) |
+| **3** | **E-mail de Status Semanal** | Semanalmente | Renato → Orientador | - Atualizar status de atividades<br>- Reportar riscos/bloqueios<br>- Solicitar feedback assíncrono | - | E-mail |
+| **4** | **Go/No-Go Review** | Antes da execução (05/06) | Renato + Orientador | - Validar prontidão para executar<br>- Decisão formal de iniciar<br>- Confirmar recursos e preparação | 60 min | Presencial |
+
+#### Detalhamento dos Ritos:
+
+---
+
+**Rito 1: Reunião de Alinhamento Quinzenal**
+
+**Objetivo:** Manter orientador informado e obter feedback contínuo.
+
+**Agenda Sugerida:**
+1. **Progresso desde última reunião** (10 min)
+   - O que foi feito
+   - Dificuldades encontradas
+
+2. **Revisão de artefatos/código** (15 min)
+   - Demonstrar código desenvolvido (se aplicável)
+   - Mostrar análises preliminares
+
+3. **Dúvidas e consultoria** (15 min)
+   - Esclarecer questões metodológicas
+   - Validar decisões técnicas
+
+4. **Próximos passos** (10 min)
+   - Definir atividades até próxima reunião
+   - Identificar dependências do orientador
+
+5. **Riscos e bloqueios** (10 min)
+   - Reportar riscos identificados
+   - Solicitar ajuda se necessário
+
+**Outputs:**
+- Ata de reunião (e-mail resumo)
+- Lista de ações e responsáveis
+- Data da próxima reunião
+
+---
+
+**Rito 2: Revisão de Marco (Checkpoint)**
+
+**Marcos Previstos:**
+
+| Marco | Data Prevista | Entrega Esperada | Critério de Aprovação |
+|-------|---------------|------------------|----------------------|
+| **M1: Plano Aprovado** | 31/05/2025 | Plano experimental completo | Orientador aprova metodologia e escopo |
+| **M2: Infraestrutura Pronta** | 31/05/2025 | - Ambiente configurado<br>- Dataset baixado<br>- Scripts básicos funcionais | Dry run executado com sucesso |
+| **M3: Experimento Concluído** | 27/06/2025 | - 120 execuções completas<br>- Resultados validados<br>- Backup feito | Dados íntegros e prontos para análise |
+| **M4: Análise Finalizada** | 31/07/2025 | - Análises estatísticas<br>- Gráficos<br>- Respostas às QPs | Resultados interpretados e consistentes |
+| **M5: TCC Rascunho** | 31/10/2025 | Primeira versão completa do TCC | Orientador revisa e dá feedback |
+| **M6: TCC Final** | 30/11/2025 | Versão final revisada | Orientador aprova para entrega |
+
+**Formato da Revisão:**
+- Apresentação formal pelo pesquisador (slides ou documento)
+- Demonstração de artefatos (código, dados, análises)
+- Checklist de prontidão/completude
+- Decisão de aprovação ou solicitação de ajustes
+
+---
+
+**Rito 3: E-mail de Status Semanal**
+
+**Template de E-mail:**
+
+```
+Assunto: [TCC] Status Semanal - Semana XX/2025
+
+Prof. Danilo,
+
+Segue atualização semanal do TCC:
+
+✅ REALIZADAS ESTA SEMANA:
+- [Lista de atividades concluídas]
+
+🚧 EM ANDAMENTO:
+- [Atividades atuais]
+
+📅 PRÓXIMAS ATIVIDADES:
+- [Planejado para próxima semana]
+
+⚠️ RISCOS/BLOQUEIOS:
+- [Se houver, descrever]
+
+❓ DÚVIDAS/NECESSIDADES:
+- [Se houver, perguntas específicas]
+
+Att,
+Renato
+```
+
+**Frequência:** Toda segunda-feira (ou dia combinado)
+
+---
+
+**Rito 4: Go/No-Go Review**
+
+**Data:** 05/06/2025 (antes da execução)
+
+**Objetivo:** Decisão formal de iniciar a execução do experimento.
+
+**Checklist de Prontidão (ver Seção 20):**
+- [ ] Plano experimental aprovado
+- [ ] Scripts desenvolvidos e testados
+- [ ] Dataset baixado e validado
+- [ ] Dry run executado com sucesso (n=5)
+- [ ] Ambiente funcional
+- [ ] Backups configurados
+- [ ] Seeds preparados
+
+**Resultado:** **GO** (autoriza execução) ou **NO-GO** (ajustes necessários)
+
+---
+
+### 17.3 Processo de Controle de Mudanças no Plano
+
+#### Política de Mudanças:
+
+**Princípio:** O plano experimental é um documento vivo, mas mudanças devem ser **controladas e documentadas**.
+
+#### Classificação de Mudanças:
+
+| Tipo | Exemplos | Aprovação Necessária | Processo |
+|------|----------|---------------------|----------|
+| **Mudança Trivial** | - Correção de typo<br>- Ajuste de formatação<br>- Clarificação de texto | ❌ Não | Executar diretamente |
+| **Mudança Menor** | - Ajuste de cronograma interno (< 1 semana)<br>- Mudança de ferramenta (ex: IDE)<br>- Ajuste de visualizações | 🟡 Informal (e-mail) | Informar orientador por e-mail |
+| **Mudança Média** | - Ajuste de hiperparâmetros<br>- Mudança de método de validação cruzada<br>- Adição de métrica secundária | 🟠 Formal | Reunião + aprovação por escrito |
+| **Mudança Significativa** | - Mudança no desenho experimental<br>- Adição/remoção de modelos<br>- Mudança no escopo (objetivos, QPs)<br>- Atraso > 2 semanas | 🔴 Crítica | Reunião + revisão de viabilidade + aprovação formal |
+
+#### Fluxo de Controle de Mudanças:
+
+```
+┌─────────────────────────────────┐
+│  Necessidade de Mudança         │
+│  Identificada                   │
+└──────────────┬──────────────────┘
+               │
+               ▼
+       ┌───────────────┐
+       │ Classificar   │
+       │ Tipo de       │
+       │ Mudança       │
+       └───┬───────┬───┘
+           │       │
+    Trivial/Menor  Média/Significativa
+           │       │
+           ▼       ▼
+     ┌─────────┐  ┌────────────────┐
+     │ Executar│  │ Preparar       │
+     │ ou      │  │ Proposta de    │
+     │ Informar│  │ Mudança        │
+     └────┬────┘  └────┬───────────┘
+          │            │
+          │            ▼
+          │      ┌───────────────┐
+          │      │ Apresentar ao │
+          │      │ Orientador    │
+          │      └───┬───────────┘
+          │          │
+          │          ▼
+          │      ┌───────────────┐
+          │      │ Orientador    │
+          │      │ Aprova?       │
+          │      └───┬────┬──────┘
+          │         Sim   Não
+          │          │    │
+          │          │    ▼
+          │          │  Revisar ou Rejeitar
+          │          │    │
+          │          │◀───┘
+          │          │
+          ▼          ▼
+      ┌────────────────────┐
+      │  Atualizar Plano   │
+      │  (controle versão) │
+      └────────────────────┘
+               │
+               ▼
+      ┌────────────────────┐
+      │  Comunicar Mudança │
+      │  (se necessário)   │
+      └────────────────────┘
+```
+
+#### Template de Proposta de Mudança:
+
+**Para mudanças Médias e Significativas:**
+
+```markdown
+## Proposta de Mudança no Plano Experimental
+
+**Data:** [DD/MM/YYYY]
+**Proponente:** Renato Matos Alves Penna
+**Classificação:** [ ] Média  [ ] Significativa
+
+### 1. Descrição da Mudança Proposta:
+[Descrever claramente o que será mudado]
+
+### 2. Justificativa:
+[Por que a mudança é necessária?]
+
+### 3. Impacto:
+- **Escopo:** [Afeta objetivos, QPs, escopo?]
+- **Cronograma:** [Adiciona/remove tempo? Quanto?]
+- **Qualidade/Validade:** [Impacta validade dos resultados?]
+- **Recursos:** [Requer recursos adicionais?]
+
+### 4. Alternativas Consideradas:
+[Outras opções avaliadas e por que foram descartadas]
+
+### 5. Decisão Solicitada:
+[ ] Aprovar
+[ ] Aprovar com ajustes
+[ ] Rejeitar
+
+### 6. Aprovação:
+**Orientador:** _______________________
+**Data:** ___ /___ /______
+```
+
+#### Registro de Mudanças:
+
+**Todas as mudanças aprovadas serão documentadas no histórico de revisão do documento (Seção 1.3).**
+
+---
+
+## 18. Plano de Documentação e Reprodutibilidade
+
+### 18.1 Repositórios e Convenções de Nomeação
+
+#### Repositório Principal:
+
+**GitHub:** https://github.com/RenatoMAP77/pre-tcc
+
+**Tipo:** Repositório público
+**Licença:** MIT License (para código) + CC-BY (para documentação)
+
+#### Estrutura de Diretórios:
+
+```
+pre-tcc/
+│
+├── README.md                          # Este plano experimental
+├── LICENSE                            # Licença MIT
+├── requirements.txt                   # Dependências Python
+├── .gitignore                         # Arquivos ignorados pelo Git
+│
+├── data/                              # Dados (não versionados se > 100MB)
+│   ├── raw/                           # Dados brutos do Google Cluster
+│   ├── processed/                     # Dados processados/agregados
+│   └── README.md                      # Descrição dos dados
+│
+├── src/                               # Código-fonte
+│   ├── preparar_dados.py              # Script de preparação de dados
+│   ├── modelos.py                     # Implementação dos modelos
+│   ├── executar_experimento.py       # Script principal de execução
+│   ├── utils.py                       # Funções auxiliares
+│   └── __init__.py                    # Pacote Python
+│
+├── notebooks/                         # Jupyter Notebooks
+│   ├── 01_exploracao_dados.ipynb     # Análise exploratória
+│   ├── 02_validacao_preparacao.ipynb # Validação do pré-processamento
+│   └── 03_analise_resultados.ipynb   # Análise estatística final
+│
+├── results/                           # Resultados do experimento
+│   ├── raw/                           # Resultados brutos (CSV)
+│   ├── figures/                       # Gráficos e visualizações
+│   ├── tables/                        # Tabelas formatadas
+│   └── README.md                      # Descrição dos resultados
+│
+├── logs/                              # Logs de execução
+│   ├── experimento.log                # Log principal
+│   └── [timestamp]_exec.log          # Logs individuais
+│
+├── config/                            # Configurações
+│   ├── seeds.txt                      # Seeds aleatórios (30)
+│   └── parametros.yaml                # Parâmetros configuráveis
+│
+├── docs/                              # Documentação adicional
+│   ├── plano_experimental.md          # Cópia do README (backup)
+│   └── manual_reproducao.md           # Guia de reprodução
+│
+└── tests/                             # Testes unitários (opcional)
+    ├── test_preparar_dados.py
+    └── test_modelos.py
+```
+
+#### Convenções de Nomeação:
+
+**1. Arquivos de Código Python:**
+- **Formato:** `snake_case.py`
+- **Exemplos:** `preparar_dados.py`, `executar_experimento.py`
+
+**2. Notebooks Jupyter:**
+- **Formato:** `NN_descricao_clara.ipynb`
+- **Exemplos:** `01_exploracao_dados.ipynb`, `03_analise_resultados.ipynb`
+- **Numeração:** 01, 02, 03... (ordem de execução)
+
+**3. Arquivos de Dados:**
+- **Dados brutos:** `google_cluster_raw.csv` (nome descritivo original)
+- **Dados processados:** `dataset_processado_YYYY-MM-DD.csv` (com data)
+- **Resultados:** `resultados_experimento_YYYY-MM-DD.csv`
+
+**4. Gráficos e Visualizações:**
+- **Formato:** `fig_NN_descricao.png` ou `.pdf`
+- **Exemplos:** `fig_01_boxplot_mae_por_modelo.png`, `fig_02_series_temporais.pdf`
+
+**5. Logs:**
+- **Formato:** `YYYY-MM-DD_HH-MM-SS_nome.log`
+- **Exemplo:** `2025-06-10_14-30-00_execucao_completa.log`
+
+**6. Branches Git (se usar):**
+- `main` ou `master`: Branch principal (código estável)
+- `develop`: Branch de desenvolvimento
+- `feature/nome-feature`: Para features específicas
+- `fix/nome-bug`: Para correções de bugs
+
+**7. Commits Git:**
+- **Formato:** `tipo: descrição concisa`
+- **Tipos:** `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`
+- **Exemplos:**
+  - `feat: adiciona implementação do modelo ARIMA`
+  - `fix: corrige divisão treino/teste em TimeSeriesSplit`
+  - `docs: atualiza README com seções 14-20`
+
+---
+
+### 18.2 Templates e Artefatos Padrão
+
+#### Templates de Código:
+
+**1. Template de Script Python:**
+
+```python
+#!/usr/bin/env python3
+"""
+Título: [Nome do Script]
+Descrição: [Breve descrição do propósito]
+Autor: Renato Matos Alves Penna
+Data: YYYY-MM-DD
+TCC: Previsão de Custos Cloud - PUC Minas
+"""
+
+import pandas as pd
+import numpy as np
+# [Outras importações]
+
+# Configurações
+SEED = 42  # Seed para reprodutibilidade
+np.random.seed(SEED)
+
+def funcao_principal():
+    """
+    Descrição da função.
+
+    Args:
+        param1 (tipo): Descrição
+
+    Returns:
+        tipo: Descrição do retorno
+    """
+    # Implementação
+    pass
+
+if __name__ == "__main__":
+    # Executar quando script for chamado diretamente
+    funcao_principal()
+```
+
+**2. Template de Notebook Jupyter:**
+
+```markdown
+# [Título do Notebook]
+
+**Autor:** Renato Matos Alves Penna
+**Data:** YYYY-MM-DD
+**Objetivo:** [Descrição breve do objetivo]
+
+---
+
+## 1. Setup e Importações
+
+## 2. Carregamento de Dados
+
+## 3. Análise Exploratória
+
+## 4. Processamento/Modelagem
+
+## 5. Resultados e Visualizações
+
+## 6. Conclusões
+
+---
+
+**Próximos Passos:**
+- [Lista de ações]
+```
+
+**3. Template de Arquivo de Resultados (CSV):**
+
+```
+execucao_id,modelo,repeticao,seed,mae,rmse,mape,tempo_exec_s,fold,mae_fold
+1,RL,1,1234,150.23,175.45,12.34,5.2,1,148.12
+1,RL,1,1234,150.23,175.45,12.34,5.2,2,152.34
+...
+```
+
+**Estrutura:**
+- `execucao_id`: ID único da execução (1-120)
+- `modelo`: Sigla do modelo (RL, MM, ARIMA, ES)
+- `repeticao`: Número da repetição (1-30)
+- `seed`: Seed usado para essa repetição
+- `mae, rmse, mape`: Métricas principais (holdout)
+- `tempo_exec_s`: Tempo de execução em segundos
+- `fold`: Fold da validação cruzada (1-5)
+- `mae_fold`: MAE no fold específico
+
+**4. Template de Log:**
+
+```
+[YYYY-MM-DD HH:MM:SS] [INFO] Início da execução
+[YYYY-MM-DD HH:MM:SS] [INFO] Carregando dados de: data/processed/dataset.csv
+[YYYY-MM-DD HH:MM:SS] [INFO] Dataset carregado: 720 observações
+[YYYY-MM-DD HH:MM:SS] [INFO] Iniciando repetição 1/30 com seed 1234
+[YYYY-MM-DD HH:MM:SS] [INFO] Treinando modelo: RL
+[YYYY-MM-DD HH:MM:SS] [INFO] MAE (holdout): 150.23
+[YYYY-MM-DD HH:MM:SS] [INFO] Validação cruzada (5-fold): MAE médio = 151.45
+[YYYY-MM-DD HH:MM:SS] [WARNING] Tempo de execução ARIMA maior que esperado: 350s
+[YYYY-MM-DD HH:MM:SS] [ERROR] Erro ao processar modelo: [descrição do erro]
+[YYYY-MM-DD HH:MM:SS] [INFO] Fim da execução. Tempo total: 45min
+```
+
+**Níveis de Log:**
+- `DEBUG`: Informações detalhadas para debugging
+- `INFO`: Informações gerais de progresso
+- `WARNING`: Avisos (não bloqueiam execução)
+- `ERROR`: Erros (podem bloquear execução)
+- `CRITICAL`: Erros críticos (interrompem execução)
+
+---
+
+### 18.3 Plano de Empacotamento para Replicação Futura
+
+#### Objetivo:
+
+Permitir que qualquer pesquisador (incluindo o autor no futuro) possa **reproduzir completamente** o experimento.
+
+#### Pacote de Reprodução:
+
+**O que será incluído no repositório GitHub:**
+
+1. **Código-fonte completo:**
+   - Todos os scripts Python (`src/`)
+   - Notebooks Jupyter (`notebooks/`)
+   - Testes (se houver)
+
+2. **Documentação:**
+   - `README.md` (plano experimental completo)
+   - `docs/manual_reproducao.md` (passo a passo para reproduzir)
+   - Comentários inline no código
+
+3. **Configurações:**
+   - `requirements.txt` (dependências Python com versões fixas)
+   - `config/seeds.txt` (seeds exatos usados)
+   - `config/parametros.yaml` (parâmetros configuráveis)
+
+4. **Dados (se possível):**
+   - **Dados processados:** `data/processed/dataset_processado.csv` (se < 100MB)
+   - **Se > 100MB:** Link para download externo + script de download
+   - **Dados de resultados:** `results/raw/resultados_completos.csv`
+
+5. **Metadados:**
+   - Versão de Python usada: `python --version`
+   - Versões de bibliotecas: `pip freeze > requirements.txt`
+   - Sistema operacional: `uname -a` (Linux/Mac) ou `systeminfo` (Windows)
+   - Data e hora da execução
+
+6. **Licença:**
+   - `LICENSE` (MIT para código, CC-BY para documentação)
+
+#### Manual de Reprodução (docs/manual_reproducao.md):
+
+**Template:**
+
+```markdown
+# Manual de Reprodução do Experimento
+
+## Pré-requisitos
+
+- Python 3.10 ou superior
+- Git
+- Conta Kaggle (para download do dataset)
+- ~10 GB de espaço livre em disco
+- ~16 GB de RAM (recomendado)
+
+## Passo 1: Clonar o Repositório
+
+```bash
+git clone https://github.com/RenatoMAP77/pre-tcc.git
+cd pre-tcc
+```
+
+## Passo 2: Criar Ambiente Virtual
+
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# ou
+venv\Scripts\activate     # Windows
+```
+
+## Passo 3: Instalar Dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+## Passo 4: Baixar Dados (se necessário)
+
+```bash
+# Opção A: Kaggle CLI
+kaggle datasets download -d derrickmwiti/google-2019-cluster-sample
+unzip google-2019-cluster-sample.zip -d data/raw/
+
+# Opção B: Usar dados processados incluídos
+# (Se dataset processado estiver no repositório, pular este passo)
+```
+
+## Passo 5: Preparar Dados
+
+```bash
+python src/preparar_dados.py
+```
+
+**Output esperado:** `data/processed/dataset_processado.csv` (~720 linhas)
+
+## Passo 6: Executar Experimento
+
+```bash
+python src/executar_experimento.py
+```
+
+**Tempo estimado:** ~13-15 horas
+**Output esperado:** `results/raw/resultados_experimento_[data].csv`
+
+## Passo 7: Analisar Resultados
+
+```bash
+jupyter notebook notebooks/03_analise_resultados.ipynb
+```
+
+## Verificação de Reprodutibilidade
+
+Os resultados devem ser **idênticos** (ou muito próximos) aos reportados no TCC, pois:
+- Seeds estão fixos (`config/seeds.txt`)
+- Versões de bibliotecas estão fixas (`requirements.txt`)
+- Dataset é o mesmo
+
+**Se houver diferenças:**
+- Verificar versões de bibliotecas
+- Verificar se seeds foram aplicados corretamente
+- Verificar se dataset está íntegro (checksums)
+
+## Troubleshooting
+
+### Problema: "ModuleNotFoundError"
+**Solução:** Instalar dependências: `pip install -r requirements.txt`
+
+### Problema: "FileNotFoundError: dataset não encontrado"
+**Solução:** Executar `preparar_dados.py` primeiro
+
+### Problema: Tempo de execução muito longo
+**Solução:** Reduzir N de 30 para 20 em `config/parametros.yaml` (ver seção de contingências)
+
+## Contato
+
+Para dúvidas sobre reprodução, abrir issue no GitHub ou contatar:
+- Renato Matos Alves Penna: renatomatosapbusiness@gmail.com
+
+#### Checklist de Empacotamento:
+
+- [ ] Código-fonte completo e comentado
+- [ ] `requirements.txt` com versões fixas
+- [ ] `README.md` atualizado
+- [ ] `docs/manual_reproducao.md` criado
+- [ ] Seeds salvos em `config/seeds.txt`
+- [ ] Resultados incluídos (ou link para download)
+- [ ] Dataset processado incluído (se < 100MB) ou link fornecido
+- [ ] Licença definida (`LICENSE`)
+- [ ] `.gitignore` configurado (excluir arquivos temporários)
+- [ ] Repositório GitHub público
+- [ ] DOI/Zenodo (opcional, para citação permanente)
+
+---
+
+## 19. Plano de Comunicação
+
+### 19.1 Públicos e Mensagens-Chave Pré-Execução
+
+#### Mapeamento de Stakeholders:
+
+| Público | Interesse | Necessidade de Informação | Frequência |
+|---------|-----------|---------------------------|------------|
+| **Orientador (Prof. Danilo)** | Alto | - Progresso do trabalho<br>- Decisões metodológicas<br>- Riscos/bloqueios | Quinzenal/Mensal |
+| **Coordenação de TCC (PUC Minas)** | Médio | - Conformidade com normas<br>- Prazos e entregas<br>- Temas e defesas | Conforme cronograma institucional |
+| **Colegas de Turma** | Baixo | - Tema e abordagem<br>- Aprendizados compartilhados | Informal (opcional) |
+| **Comunidade Acadêmica (GitHub)** | Baixo | - Código aberto<br>- Reprodutibilidade | Quando repositório for publicado |
+
+#### Mensagens-Chave por Público:
+
+**Para o Orientador:**
+- **Objetivo:** "Comparar modelos de previsão de custos cloud usando dados reais do Google"
+- **Progresso:** "Estou na fase [X], próximo marco é [Y] em [data]"
+- **Riscos:** "Identifiquei risco [Z], proposta de mitigação é [W]"
+- **Dúvidas:** "Preciso de orientação sobre [tema específico]"
+
+**Para a Coordenação:**
+- **Tema:** "Previsão de Custos de Infraestrutura Cloud Utilizando Séries Temporais"
+- **Orientador:** "Prof. Danilo de Quadros Maia Filho"
+- **Cronograma:** "Entrega prevista para 05/12/2025, defesa em dezembro"
+- **Conformidade:** "Não envolve sujeitos humanos, dispensa CEP"
+
+**Para Colegas (informal):**
+- **Tema leigo:** "Estou criando modelos que preveem quanto vai custar rodar aplicações na nuvem"
+- **Técnico:** "Comparando regressão linear, ARIMA e exponential smoothing para previsão de custos cloud"
+
+---
+
+### 19.2 Canais e Frequência de Comunicação
+
+#### Matriz de Comunicação:
+
+| Público | Canal | Frequência | Responsável | Formato |
+|---------|-------|------------|-------------|---------|
+| **Orientador** | E-mail | Semanal | Renato | E-mail de status |
+| | Reunião presencial/virtual | Quinzenal | Renato (agendar) | Reunião formal |
+| | WhatsApp/Telefone | Conforme necessário | Renato | Mensagem rápida |
+| **Coordenação TCC** | Sistema acadêmico PUC | Conforme prazos | PUC Minas | Submissão formal |
+| | E-mail institucional | Quando necessário | Renato | E-mail formal |
+| **Comunidade GitHub** | Repositório público | Quando atualizado | Renato | Commits + README |
+| **Registro pessoal** | Diário de bordo (opcional) | Diário/Semanal | Renato | Anotações pessoais |
+
+#### Detalhamento por Canal:
+
+**1. E-mail (Orientador):**
+- **Frequência:** Toda segunda-feira (ou dia combinado)
+- **Template:** Ver Seção 17.2 (E-mail de Status Semanal)
+- **Tempo de resposta esperado:** 2-3 dias úteis
+
+**2. Reunião Presencial/Virtual (Orientador):**
+- **Frequência:** A cada 15 dias
+- **Duração:** 30-60 minutos
+- **Agendamento:** Com pelo menos 3 dias de antecedência
+- **Ferramentas:** Google Meet, Zoom ou presencial (PUC Minas)
+
+**3. Sistema Acadêmico PUC Minas:**
+- **Uso:** Submissão de entregas formais (se houver)
+- **Atenção:** Seguir prazos institucionais rigorosamente
+
+**4. GitHub (Comunidade):**
+- **Commits:** A cada feature/bug fix relevante
+- **README:** Manter atualizado com progresso geral
+- **Issues:** Para discussões técnicas (se alguém abrir)
+
+---
+
+### 19.3 Pontos de Comunicação Obrigatórios
+
+#### Eventos que Exigem Comunicação Formal:
+
+| # | Evento | Para Quem Comunicar | Canal | Prazo | Conteúdo |
+|---|--------|---------------------|-------|-------|----------|
+| **1** | **Conclusão do Plano Experimental** | Orientador | E-mail + Reunião | Imediato | - Plano completo em anexo<br>- Solicitar revisão<br>- Agendar reunião de validação |
+| **2** | **Aprovação do Plano** | Coordenação (se requerido) | Sistema PUC | Após aprovação do orientador | - Confirmar tema aprovado<br>- Orientador designado |
+| **3** | **Mudança Significativa no Plano** | Orientador | E-mail + Reunião | Antes de implementar | - Proposta de mudança<br>- Justificativa<br>- Impactos |
+| **4** | **Início da Execução do Experimento** | Orientador | E-mail | 1 dia antes | - Confirmar Go decision<br>- Data/hora de início<br>- Tempo estimado |
+| **5** | **Conclusão da Execução** | Orientador | E-mail | No mesmo dia | - Confirmar conclusão<br>- Status dos resultados<br>- Próximos passos |
+| **6** | **Identificação de Risco Crítico** | Orientador | E-mail + Telefone (urgente) | Imediatamente | - Descrição do risco<br>- Impacto no cronograma<br>- Proposta de mitigação |
+| **7** | **Atraso Significativo (> 1 semana)** | Orientador + Coordenação | E-mail formal | Assim que identificado | - Razão do atraso<br>- Novo cronograma<br>- Impacto na entrega final |
+| **8** | **Entrega de Versão Preliminar do TCC** | Orientador | E-mail + PDF | Conforme combinado | - TCC em PDF<br>- Solicitar revisão<br>- Prazo para feedback |
+| **9** | **Submissão Final do TCC** | Coordenação | Sistema PUC | Até 05/12/2025 | - TCC final formatado<br>- Documentos requeridos<br>- Declarações |
+| **10** | **Agendamento de Defesa** | Coordenação | Sistema PUC | Após aprovação da coordenação | - Confirmar disponibilidade<br>- Data preferencial |
+
+#### Templates de Comunicação para Eventos Críticos:
+
+**Template 1: Conclusão do Plano Experimental**
+
+```
+Assunto: [TCC] Plano Experimental Completo - Solicitação de Revisão
+
+Prof. Danilo,
+
+Concluí a elaboração do plano experimental do TCC, conforme discutido.
+
+ANEXO: Plano Experimental Completo (README.md / PDF)
+
+O plano inclui:
+✅ Objetivos, questões de pesquisa e métricas (GQM)
+✅ Desenho experimental (fator único, CRD, n=30)
+✅ Protocolo operacional detalhado
+✅ Análise de ameaças à validade
+✅ Cronograma (execução prevista para junho/julho)
+
+Solicito revisão e aprovação para iniciar a implementação.
+
+Podemos agendar uma reunião para discussão?
+Proposta de datas: [data 1], [data 2], [data 3]
+
+Att,
+Renato
+```
+
+---
+
+**Template 2: Identificação de Risco Crítico**
+
+```
+Assunto: [TCC] URGENTE - Risco Crítico Identificado
+
+Prof. Danilo,
+
+Identifiquei um risco crítico que pode impactar o cronograma:
+
+⚠️ RISCO: [Descrição do risco]
+📊 IMPACTO: [Descrição do impacto - ex: atraso de 2 semanas]
+📅 PRAZO AFETADO: [Marco ou entrega afetada]
+
+PROPOSTA DE MITIGAÇÃO:
+[Descrição da proposta]
+
+Solicito orientação urgente.
+Disponível para reunião emergencial.
+
+Att,
+Renato
+Cel: [telefone]
+```
+
+---
+
+**Template 3: Submissão Final do TCC**
+
+```
+Assunto: [TCC] Submissão Final - Renato Matos Alves Penna
+
+Coordenação de TCC,
+
+Segue submissão final do Trabalho de Conclusão de Curso:
+
+TÍTULO: Previsão de Custos de Infraestrutura Cloud Utilizando Modelos Baseados em Métricas Reais: Uma Comparação entre Algoritmos Simples e Técnicas de Séries Temporais
+
+ALUNO: Renato Matos Alves Penna
+ORIENTADOR: Prof. Danilo de Quadros Maia Filho
+DATA DE SUBMISSÃO: 05/12/2025
+
+ANEXOS:
+- TCC_RenatoMatos_VersaoFinal.pdf
+- Termo de Compromisso assinado
+- [Outros documentos requeridos]
+
+Aguardo retorno sobre agendamento de defesa.
+
+Att,
+Renato Matos Alves Penna
+Matrícula: [número]
+renatomatosapbusiness@gmail.com
+```
+
+---
+
+## 20. Critérios de Prontidão para Execução (Definition of Ready)
+
+### 20.1 Checklist de Prontidão (Itens que Devem Estar Completos)
+
+#### Objetivo:
+
+Esta seção define os **critérios objetivos** que devem ser atendidos para autorizar o **início da execução do experimento** (prevista para 10/06/2025).
+
+#### Checklist Completo de Prontidão:
+
+---
+
+**CATEGORIA 1: PLANEJAMENTO E DOCUMENTAÇÃO**
+
+- [ ] **1.1 Plano Experimental Completo**
+  - [ ] Documento README.md com todas as 20 seções preenchidas
+  - [ ] Objetivos, questões de pesquisa e métricas (GQM) claramente definidos
+  - [ ] Desenho experimental documentado (fator único, CRD, n=30)
+  - [ ] Protocolo operacional passo a passo descrito (Seção 11.3)
+  - [ ] Ameaças à validade identificadas e mitigações planejadas (Seção 13)
+
+- [ ] **1.2 Aprovação do Orientador**
+  - [ ] Plano experimental revisado pelo Prof. Danilo
+  - [ ] Aprovação formal recebida (e-mail ou ata de reunião)
+  - [ ] Feedback incorporado ao documento
+
+- [ ] **1.3 Cronograma Validado**
+  - [ ] Datas de marcos críticos confirmadas
+  - [ ] Tempo de execução realista (13-15h) considerado
+  - [ ] Buffer de tempo para imprevistos incluído
+
+---
+
+**CATEGORIA 2: INFRAESTRUTURA TÉCNICA**
+
+- [ ] **2.1 Ambiente Computacional**
+  - [ ] Python 3.10+ instalado e funcional
+  - [ ] Ambiente virtual criado (`venv` ou `conda`)
+  - [ ] Todas as bibliotecas necessárias instaladas (ver `requirements.txt`)
+  - [ ] IDE configurada (VS Code, PyCharm ou similar)
+  - [ ] Git instalado e configurado
+
+- [ ] **2.2 Repositório GitHub**
+  - [ ] Repositório criado: https://github.com/RenatoMAP77/pre-tcc
+  - [ ] Estrutura de diretórios criada (`src/`, `data/`, `results/`, etc.)
+  - [ ] `.gitignore` configurado
+  - [ ] Primeiro commit realizado
+
+- [ ] **2.3 Acesso a Dados**
+  - [ ] Conta Kaggle criada e autenticada
+  - [ ] Google Cluster Data 2019 baixado e validado
+  - [ ] Dataset bruto armazenado em `data/raw/`
+  - [ ] Integridade dos dados verificada (checksums, se disponível)
+
+---
+
+**CATEGORIA 3: CÓDIGO E SCRIPTS**
+
+- [ ] **3.1 Scripts de Preparação de Dados**
+  - [ ] `preparar_dados.py` desenvolvido
+  - [ ] Script testado e executado com sucesso
+  - [ ] Dataset processado gerado em `data/processed/`
+  - [ ] Validação de qualidade dos dados aprovada (Seção 10.2)
+
+- [ ] **3.2 Implementação dos Modelos**
+  - [ ] Modelo 1: Regressão Linear implementado
+  - [ ] Modelo 2: Média Móvel implementado
+  - [ ] Modelo 3: ARIMA implementado (com grid search)
+  - [ ] Modelo 4: Exponential Smoothing implementado
+  - [ ] Todos os modelos testados individualmente
+
+- [ ] **3.3 Script Principal de Execução**
+  - [ ] `executar_experimento.py` desenvolvido
+  - [ ] Integração com todos os 4 modelos funcional
+  - [ ] TimeSeriesSplit (k=5) implementado corretamente
+  - [ ] Sistema de logging configurado
+  - [ ] Salvamento incremental de resultados implementado
+
+- [ ] **3.4 Funções Auxiliares**
+  - [ ] Funções de cálculo de métricas (MAE, RMSE, MAPE) implementadas
+  - [ ] Funções de divisão treino/teste com seed implementadas
+  - [ ] Funções de validação de dados implementadas
+
+---
+
+**CATEGORIA 4: VALIDAÇÃO PRÉVIA (DRY RUN)**
+
+- [ ] **4.1 Execução de Teste Realizada**
+  - [ ] Dry run executado com n=5 repetições
+  - [ ] Todos os 4 modelos rodaram sem erros
+  - [ ] Resultados salvos em arquivo CSV
+
+- [ ] **4.2 Validação de Outputs**
+  - [ ] Arquivo `resultados.csv` gerado com estrutura correta
+  - [ ] Logs gerados corretamente em `logs/`
+  - [ ] Métricas estão em ranges plausíveis (MAE > 0, MAPE < 100%)
+
+- [ ] **4.3 Validação de Tempo**
+  - [ ] Tempo de execução do dry run medido
+  - [ ] Tempo de execução completo estimado (30 × tempo dry run)
+  - [ ] Tempo estimado é viável (< 20h)
+
+- [ ] **4.4 Correção de Bugs**
+  - [ ] Todos os bugs identificados no dry run foram corrigidos
+  - [ ] Scripts atualizados e testados novamente
+
+---
+
+**CATEGORIA 5: CONFIGURAÇÕES E PARÂMETROS**
+
+- [ ] **5.1 Seeds de Reprodutibilidade**
+  - [ ] 30 seeds aleatórios gerados com seed mestre = 42
+  - [ ] Seeds salvos em `config/seeds.txt`
+  - [ ] Script configurado para usar seeds corretamente
+
+- [ ] **5.2 Hiperparâmetros Definidos**
+  - [ ] Grid search do ARIMA configurado: p ∈ {0,1,2}, d ∈ {0,1}, q ∈ {0,1,2}
+  - [ ] Parâmetros do ES definidos: trend, seasonal, seasonal_periods
+  - [ ] Janela da Média Móvel definida: N = 7
+
+- [ ] **5.3 Parâmetros de Validação**
+  - [ ] k-fold = 5 configurado (TimeSeriesSplit)
+  - [ ] Divisão treino/teste = 70%-30% configurada
+
+---
+
+**CATEGORIA 6: BACKUPS E SEGURANÇA**
+
+- [ ] **6.1 Sistema de Backup**
+  - [ ] Repositório GitHub configurado como backup remoto
+  - [ ] Backup local em segundo dispositivo (opcional, mas recomendado)
+  - [ ] Google Drive configurado como backup adicional (opcional)
+
+- [ ] **6.2 Salvamento Incremental**
+  - [ ] Script configurado para salvar resultados a cada execução
+  - [ ] Mecanismo de restart implementado (para retomar se falhar)
+
+---
+
+**CATEGORIA 7: RECURSOS E LOGÍSTICA**
+
+- [ ] **7.1 Disponibilidade de Tempo**
+  - [ ] Período de ~2 semanas reservado para execução (10-25/06)
+  - [ ] Computador disponível por longos períodos (execução pode levar 13-15h)
+  - [ ] Alternativa planejada (ex: executar durante a noite)
+
+- [ ] **7.2 Contingências Planejadas**
+  - [ ] Plano B para hardware (laboratórios PUC, se computador falhar)
+  - [ ] Plano B para dados (BigQuery, se Kaggle falhar)
+  - [ ] Plano de redução de N (de 30 para 20, se tempo exceder muito)
+
+---
+
+**CATEGORIA 8: COMUNICAÇÃO E APROVAÇÃO**
+
+- [ ] **8.1 Comunicação ao Orientador**
+  - [ ] Orientador informado sobre data de início da execução
+  - [ ] Última reunião de validação realizada
+  - [ ] Orientador ciente de que experimento levará ~13-15h
+
+- [ ] **8.2 Registro de Prontidão**
+  - [ ] Checklist de prontidão revisado e todos os itens confirmados
+  - [ ] Data de conclusão da preparação registrada
+  - [ ] Go/No-Go decision documentada
+
+---
+
+#### Resumo Visual - Status de Prontidão:
+
+```
+CATEGORIA                         STATUS  COMPLETUDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. Planejamento e Documentação   [  ]    0/3
+2. Infraestrutura Técnica         [  ]    0/3
+3. Código e Scripts               [  ]    0/4
+4. Validação Prévia (Dry Run)     [  ]    0/4
+5. Configurações e Parâmetros     [  ]    0/3
+6. Backups e Segurança            [  ]    0/2
+7. Recursos e Logística           [  ]    0/2
+8. Comunicação e Aprovação        [  ]    0/2
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOTAL: 0/23 categorias completas
+
+DECISÃO: [  ] GO  [  ] NO-GO
+```
+
+---
+
+### 20.2 Aprovações Finais para Iniciar a Operação
+
+#### Processo de Go/No-Go Decision:
+
+**Data Planejada:** 05/06/2025
+**Participantes:** Renato (Pesquisador) + Prof. Danilo (Orientador)
+
+#### Critérios de Decisão:
+
+**✅ GO (Autorizar Execução):**
+
+Condições **obrigatórias** para autorizar início:
+
+1. **Checklist de Prontidão ≥ 90% completo**
+   - Máximo 2-3 itens não-críticos pendentes
+   - Todos os itens críticos DEVEM estar completos
+
+2. **Dry Run Bem-Sucedido**
+   - Execução de teste (n=5) rodou sem erros
+   - Resultados validados e plausíveis
+   - Bugs corrigidos
+
+3. **Aprovação do Orientador**
+   - Plano experimental aprovado
+   - Orientador confirma prontidão metodológica
+   - Orientador valida cronograma
+
+4. **Recursos Garantidos**
+   - Computador funcional e disponível
+   - Dataset baixado e validado
+   - Código testado e estável
+
+**❌ NO-GO (Adiar Execução):**
+
+Situações que **bloqueiam** início da execução:
+
+1. **Checklist < 80% completo**
+   - Muitos itens críticos pendentes
+   - Infraestrutura não pronta
+
+2. **Dry Run Falhou**
+   - Erros não resolvidos
+   - Resultados implausíveis
+   - Tempo de execução inviável (> 30h estimadas)
+
+3. **Falta de Aprovação**
+   - Orientador não aprovou o plano
+   - Mudanças significativas pendentes
+
+4. **Riscos Críticos Não Mitigados**
+   - Hardware instável
+   - Dataset indisponível
+   - Bugs críticos não resolvidos
+
+#### Reunião de Go/No-Go:
+
+**Formato da Reunião:**
+
+1. **Revisão do Checklist** (20 min)
+   - Renato apresenta status de cada categoria
+   - Demonstra que itens críticos foram completados
+
+2. **Demonstração do Dry Run** (15 min)
+   - Mostrar resultados do teste (n=5)
+   - Explicar tempo estimado para execução completa
+
+3. **Discussão de Riscos** (15 min)
+   - Revisar riscos identificados (Seção 16.3)
+   - Confirmar planos de contingência
+
+4. **Decisão Final** (10 min)
+   - Orientador decide: GO ou NO-GO
+   - Se GO: confirmar data de início
+   - Se NO-GO: definir itens pendentes e nova data de revisão
+
+**Registro da Decisão:**
+
+```markdown
+# Registro de Go/No-Go Decision
+
+**Data da Reunião:** 05/06/2025
+**Participantes:** Renato Matos Alves Penna, Prof. Danilo de Quadros Maia Filho
+
+## Status do Checklist:
+- Planejamento: [X] Completo
+- Infraestrutura: [X] Completo
+- Código: [X] Completo
+- Dry Run: [X] Bem-sucedido
+- Configurações: [X] Completo
+- Backups: [X] Completo
+- Recursos: [X] Garantidos
+- Comunicação: [X] OK
+
+## Resultado do Dry Run:
+- Tempo médio por modelo: [X] segundos
+- Tempo estimado total: ~[Y] horas
+- Erros encontrados: [Nenhum / Lista]
+
+## Riscos Identificados:
+- [Lista de riscos e mitigações]
+
+## DECISÃO:
+
+[X] **GO** - Autorizado iniciar execução em 10/06/2025
+[ ] **NO-GO** - Adiar execução. Itens pendentes: [lista]
+
+## Observações:
+[Comentários do orientador]
+
+**Assinatura (Orientador):** _______________________
+**Data:** ___/___/______
+```
+
+#### Após a Decisão GO:
+
+**Próximos Passos Imediatos:**
+
+1. **Comunicar Início:**
+   - Enviar e-mail ao orientador confirmando data/hora de início
+   - Documentar no log do experimento
+
+2. **Preparação Final:**
+   - Fechar aplicações desnecessárias no computador
+   - Desabilitar atualizações automáticas
+   - Verificar espaço em disco
+   - Confirmar backup configurado
+
+3. **Iniciar Execução:**
+   - Executar `python src/executar_experimento.py`
+   - Monitorar progresso inicial (primeiras 2-3 horas)
+   - Confirmar que logs estão sendo gerados corretamente
+
+4. **Monitoramento:**
+   - Verificar progresso periodicamente
+   - Registrar qualquer anomalia
+   - Estar preparado para intervenção se necessário
+
+---
 
